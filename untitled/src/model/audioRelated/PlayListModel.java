@@ -1,13 +1,15 @@
 package model.audioRelated;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
-public class PlayListModel
+public class PlayListModel implements Iterable <AudioModel>
 {
     private long playListID;
     private String playListName;
     private String creator;
     private static long amountOfPlaylists;
+    private int audiosIndex=0;
     private ArrayList <AudioModel> audios=new ArrayList<>();
     public PlayListModel(String playListName, String creator)
     {
@@ -63,5 +65,23 @@ public class PlayListModel
             if(audioTemp!=null)
                 temp.append(audioTemp).append("\n");
         return string+temp;
+    }
+    public Iterator<AudioModel> iterator()
+    {
+        return new Iterator<AudioModel>() {
+            @Override
+            public boolean hasNext()
+            {
+                if(audiosIndex<audios.size())
+                    return true;
+                else
+                    return false;
+            }
+            @Override
+            public AudioModel next()
+            {
+                return audios.get(audiosIndex++);
+            }
+        };
     }
 }

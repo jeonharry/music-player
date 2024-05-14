@@ -4,6 +4,8 @@ import controller.AdminController;
 import controller.ArtistController;
 import controller.Controller;
 import controller.ListenerController;
+import model.audioRelated.AudioModel;
+import model.audioRelated.PlayListModel;
 
 import java.util.Scanner;
 
@@ -122,9 +124,27 @@ public class View
             else if(orders[0].compareTo("NewPlaylist")==0)
                 System.out.println(ListenerController.getListenerController().makePlayList(orders[1]));
             else if(orders[0].compareTo("ShowPlaylists")==0)
-                System.out.println(ListenerController.getListenerController().showPlayLists());
+            {
+                System.out.println("Playlists name:\n");
+                for(PlayListModel playListTemp : ListenerController.getListenerController().showPlayLists())
+                    if(playListTemp!=null)
+                        for(AudioModel audioTemp:playListTemp)
+                            if(audioTemp!=null)
+                                System.out.println(audioTemp);
+            }
             else if(orders[0].compareTo("SelectPlaylist")==0)
-                System.out.println(ListenerController.getListenerController().showPlayList(orders[1]));
+            {
+                PlayListModel playList=ListenerController.getListenerController().showPlayList(orders[1]);
+                if(playList==null)
+                    System.out.println("playlist not found");
+                else
+                {
+                    System.out.println("Audios:\n");
+                    for(AudioModel temp :playList)
+                        if(temp!=null)
+                            System.out.println(temp);
+                }
+            }
             else if(orders[0].compareTo("Play")==0)
                 System.out.println(ListenerController.getListenerController().playAudio(orders[1]));
             else if(orders[0].compareTo("Like")==0)

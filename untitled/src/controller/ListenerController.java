@@ -527,20 +527,16 @@ public class ListenerController
         else
             return "you already created 3 playlists";
     }
-    public String showPlayLists()
+    public ArrayList<PlayListModel> showPlayLists()
     {
-        StringBuilder answer=new StringBuilder("Playlists name:\n");
-        for(PlayListModel temp: getListener().getPlayLists())
-            if(temp!=null)
-                answer.append(temp.getPlayListName()).append("\n");
-        return answer.toString();
+        return getListener().getPlayLists();
     }
-    public String showPlayList(String playListName)
+    public PlayListModel showPlayList(String playListName)
     {
         for(PlayListModel temp: getListener().getPlayLists())
             if(temp!=null && temp.getPlayListName().compareTo(playListName)==0)
-                return temp.toString();
-        return "playlist not found";
+                return temp;
+        return null;
     }
     public String playAudio(String audioID)
     {
