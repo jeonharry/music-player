@@ -319,7 +319,7 @@ public class ListenerController
         }
         else if(filter.compareTo("D")==0)
         {
-            String[] dates=filterBy.split(" _");
+            String[] dates=filterBy.split(" -");
             String dateRegex="^\\d{4}/([1][0-2]|[1-9]|[0][1-9])/([1-2][0-9]|30|31|[0-9]|0[0-9])$";
             Pattern datePattern=Pattern.compile(dateRegex);
             if(!datePattern.matcher(dates[0]).matches())

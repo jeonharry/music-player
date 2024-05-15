@@ -126,7 +126,7 @@ public class View
             {
                 if(orders[1].compareTo("D")==0)
                 {
-                    String dates=orders[2]+orders[3];
+                    String dates=orders[2]+" -"+orders[3];
                     System.out.println(ListenerController.getListenerController().doFilter(orders[1],dates));
                 }
                 else
