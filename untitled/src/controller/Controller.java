@@ -1,5 +1,8 @@
 package controller;
 
+import exceptions.InvalidFormatException;
+import exceptions.UserNotFoundException;
+import exceptions.WrongPasswordException;
 import model.Database;
 import model.users.AccountUserModel;
 import model.users.AdminModel;
@@ -40,7 +43,7 @@ public class Controller
         else
             return null;
     }
-    public String logIn(String userName,String password)
+    public String logIn(String userName,String password) throws Exception
     {
         if(AdminModel.getAdmin().getUserName().compareTo(userName)==0)
         {
@@ -50,7 +53,7 @@ public class Controller
                 return "logged in";
             }
             else
-                return "wrong password";
+                throw new WrongPasswordException();
         }
         boolean exist=false;
         for(AccountUserModel temp: Database.getDatabase().getAllUsers())
@@ -59,7 +62,7 @@ public class Controller
                 exist=true;
                 if (password.compareTo(temp.getPassword())!=0)
                 {
-                    return "wrong password";
+                    throw new WrongPasswordException();
                 }
                 if(temp instanceof ListenerModel)
                 {
@@ -79,27 +82,26 @@ public class Controller
                 break;
             }
         if(!exist)
-            return "username doesn't exist";
+            throw new UserNotFoundException();
         return "logged in";
     }
-    public String makeNewAccount(String userName,String email, String phoneNumber, String birthDate)
+    public String makeNewAccount(String userName,String email, String phoneNumber, String birthDate)throws Exception
     {
         for(AccountUserModel temp: Database.getDatabase().getAllUsers())
             if(temp!=null && userName.compareTo(temp.getUserName())==0)
                 return "This username already exists";
         String numRegex="^09\\d{9}$";
-//        String emailRegex="^[^(\\.|\\W)](?=\\d*[a-zA-Z])([a-zA-Z0-9]\\.?){4,28}[^(\\.|\\W)]@gmail.com$";
         String emailRegex="^[^(\\.|\\W)](?=\\d*[a-zA-Z])([a-zA-Z0-9]\\.?){1,25}[^(\\.|\\W)]@(?=\\d*[a-zA-Z])([a-zA-Z0-9]-?){2,28}[^\\W-]\\.[a-zA-Z]{2,20}$";
         String dateRegex="^\\d{4}/([1][0-2]|[1-9]|[0][1-9])/([1-2][0-9]|30|31|[0-9]|0[0-9])$";
         Pattern numPattern=Pattern.compile(numRegex);
         Pattern emailPattern=Pattern.compile(emailRegex);
         Pattern datePattern=Pattern.compile(dateRegex);
         if(!numPattern.matcher(phoneNumber).matches())
-            return "phoneNumber isn't valid";
+            throw new InvalidFormatException("phoneNumber isn't valid");
         else if(!emailPattern.matcher(email).matches())
-            return "email isn't valid";
+            throw new InvalidFormatException("email isn't valid");
         else if(!datePattern.matcher(birthDate).matches())
-            return "birth date isn't valid";
+            throw new InvalidFormatException("birth date isn't valid");
         return "Signed up successfully";
     }
     public String help()

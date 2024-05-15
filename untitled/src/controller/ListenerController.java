@@ -1,5 +1,7 @@
 package controller;
 
+import exceptions.FreeAccountLimitException;
+import exceptions.InvalidFormatException;
 import model.Database;
 import model.audioRelated.*;
 import model.report.Report;
@@ -34,9 +36,9 @@ public class ListenerController
     {
         this.listener = listener;
     }
-    public String makeNewListener(String userName,String password,String fullName,String email,String phoneNumber,String birthDate)
-    {
-        String answer=Controller.getController().makeNewAccount(userName,email,phoneNumber,birthDate);
+    public String makeNewListener(String userName,String password,String fullName,String email,String phoneNumber,String birthDate) throws Exception {
+        String answer;
+        answer=Controller.getController().makeNewAccount(userName,email,phoneNumber,birthDate);
         if(answer.compareTo("Signed up successfully")==0)
         {
             ListenerModel tempListener;
@@ -120,7 +122,7 @@ public class ListenerController
         Database.getDatabase().getAllUsers().add(freeListener);
         setListener(freeListener);
     }
-    public String addToPlayList(String playListName,String audioID)
+    public String addToPlayList(String playListName,String audioID) throws Exception
     {
         if (getListener() instanceof PremiumListenerModel && ((PremiumListenerModel)getListener()).getRemainingDays()<=0)
         {
@@ -158,7 +160,7 @@ public class ListenerController
             return "audio added to playlist successfully";
         }
         else
-            return "you already added 10 audios buy premium for more";
+            throw new FreeAccountLimitException("you already added 10 audios buy premium for more");
     }
     public String showArtists()
     {
@@ -300,7 +302,7 @@ public class ListenerController
         else
             return null;
     }
-    public String doFilter(String filter,String filterBy)
+    public String doFilter(String filter,String filterBy)throws Exception
     {
         StringBuilder answer=new StringBuilder();
         if(filter.compareTo("A")==0)
@@ -323,9 +325,9 @@ public class ListenerController
             String dateRegex="^\\d{4}/([1][0-2]|[1-9]|[0][1-9])/([1-2][0-9]|30|31|[0-9]|0[0-9])$";
             Pattern datePattern=Pattern.compile(dateRegex);
             if(!datePattern.matcher(dates[0]).matches())
-                return "date isn't valid";
+                throw new InvalidFormatException("date isn't valid");
             if(!datePattern.matcher(dates[1]).matches())
-                return "date isn't valid";
+                throw new InvalidFormatException("date isn't valid");
             Calendar startDate =Calendar.getInstance();
             Calendar endDate =Calendar.getInstance();
             startDate.setTime(new Date(dates[0]));
@@ -500,7 +502,7 @@ public class ListenerController
             return answer.toString();
         }
     }
-    public String makePlayList(String playlistName)
+    public String makePlayList(String playlistName)throws Exception
     {
         if (getListener() instanceof PremiumListenerModel && ((PremiumListenerModel)getListener()).getRemainingDays()<=0)
         {
@@ -525,7 +527,7 @@ public class ListenerController
             return "playList made successfully";
         }
         else
-            return "you already created 3 playlists";
+            throw new FreeAccountLimitException("you already created 3 playlists");
     }
     public ArrayList<PlayListModel> showPlayLists()
     {

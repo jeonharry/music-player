@@ -28,7 +28,7 @@ public class ArtistController
     {
         return this.artist;
     }
-    public String makeNewArtist(String userName,String password,String fullName,String email,String phoneNumber,String birthDate,String bio,String accType)
+    public String makeNewArtist(String userName,String password,String fullName,String email,String phoneNumber,String birthDate,String bio,String accType)throws Exception
     {
         String answer=Controller.getController().makeNewAccount(userName,email,phoneNumber,birthDate);
         if(answer.compareTo("Signed up successfully")==0)
