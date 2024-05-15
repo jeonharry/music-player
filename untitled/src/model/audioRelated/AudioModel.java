@@ -2,7 +2,7 @@ package model.audioRelated;
 
 import java.util.Calendar;
 
-public abstract class AudioModel
+public abstract class AudioModel implements Comparable <AudioModel>
 {
     private long audioID;
     private String audioName;
@@ -108,5 +108,35 @@ public abstract class AudioModel
     {
         return "Audio name: "+this.audioName+"\nAudio ID: "+this.audioID+"\nAudio's artist: "+this.nameOfArtist+"\nLikes: "+this.likeAmount+"\nPlays: "+this.playAmount+"\nRelease date: "+this.releaseDate.get(Calendar.YEAR)+"/"+(this.releaseDate.get(Calendar.MONTH)+1)+"/"+this.releaseDate.get(Calendar.DATE)+
                 "\nGenre: "+this.genre+"\nLink: "+this.link+"\nCover: "+this.cover;
+    }
+    public int compareTo(AudioModel audio)
+    {
+        if(this.audioName.compareTo(audio.getAudioName())>0)
+            return 1;
+        else if(this.audioName.compareTo(audio.getAudioName())<0)
+            return -1;
+        else
+        {
+            if(this.getLikeAmount()>audio.getLikeAmount())
+                return 1;
+            else if(this.getLikeAmount()<audio.getLikeAmount())
+                return -1;
+            else
+            {
+                if(this instanceof MusicModel && audio instanceof PodcastModel)
+                    return 1;
+                else if(this instanceof PodcastModel && audio instanceof MusicModel)
+                    return -1;
+                else
+                {
+                    if(this.playAmount>audio.getPlayAmount())
+                        return 1;
+                    else if(this.playAmount<audio.getPlayAmount())
+                        return -1;
+                    else
+                        return 0;
+                }
+            }
+        }
     }
 }

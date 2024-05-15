@@ -721,4 +721,13 @@ public class ListenerController
             getListener().getSubscriptionExpiration().add(Calendar.DATE,-1);
         return getListener().toString();
     }
+    public String sortBasedOnCompareTo()
+    {
+        Collections.sort(Database.getDatabase().getAllAudios());
+        StringBuilder answer=new StringBuilder();
+        for(AudioModel temp: Database.getDatabase().getAllAudios())
+            if(temp!=null)
+                answer.append("audio ID: ").append(temp.getAudioID()).append("\n").append("audio name: ").append(temp.getAudioName()).append("\n").append("likes: ").append(temp.getLikeAmount()).append(" plays: ").append(temp.getPlayAmount()).append("\n");
+        return answer.toString();
+    }
 }

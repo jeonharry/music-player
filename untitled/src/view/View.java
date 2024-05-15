@@ -116,9 +116,22 @@ public class View
             else if(orders[0].compareTo("Search")==0)
                 System.out.println(ListenerController.getListenerController().search(orders[1]));
             else if(orders[0].compareTo("Sort")==0)
-                System.out.println(ListenerController.getListenerController().sort(orders[1]));
+            {
+                if(orders.length==1)
+                    System.out.println(ListenerController.getListenerController().sortBasedOnCompareTo());
+                else
+                    System.out.println(ListenerController.getListenerController().sort(orders[1]));
+            }
             else if(orders[0].compareTo("Filter")==0)
-                System.out.println(ListenerController.getListenerController().doFilter(orders[1],orders[2]));
+            {
+                if(orders[1].compareTo("D")==0)
+                {
+                    String dates=orders[2]+orders[3];
+                    System.out.println(ListenerController.getListenerController().doFilter(orders[1],dates));
+                }
+                else
+                    System.out.println(ListenerController.getListenerController().doFilter(orders[1],orders[2]));
+            }
             else if(orders[0].compareTo("GetSuggestions")==0)
                 System.out.println(ListenerController.getListenerController().getSuggestions());
             else if(orders[0].compareTo("NewPlaylist")==0)
