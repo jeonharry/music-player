@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="430.0" prefWidth="150.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo8.SideBarController">
+   <children>
+      <VBox fx:id="buttons" prefHeight="430.0" prefWidth="150.0" spacing="10.0" style="-fx-background-color: black;">
+         <children>
+            <StackPane fx:id="btn_home" onMouseClicked="#goToHomePage" prefHeight="50.0" prefWidth="150.0">
+               <children>
+                  <HBox fx:id="homeBackground" prefHeight="50.0" prefWidth="150.0" spacing="10.0" style="-fx-background-radius: 10; -fx-border-radius: 10;">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/images%20(2).png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="30.0" top="10.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <Label text="Home" textFill="#fffffff7">
+                           <HBox.margin>
+                              <Insets top="14.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Rectangle fx:id="homeSelectedOrNot" arcHeight="5.0" arcWidth="5.0" fill="#00000066" height="50.0" stroke="BLACK" strokeType="INSIDE" width="150.0" />
+               </children>
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </StackPane>
+            <StackPane fx:id="btn_search" onMouseClicked="#search" prefHeight="50.0" prefWidth="150.0">
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </VBox.margin>
+               <children>
+                  <HBox fx:id="searchBackground" prefHeight="50.0" prefWidth="200.0" spacing="10.0" style="-fx-background-radius: 10; -fx-border-radius: 10;">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets left="30.0" top="10.0" />
+                           </HBox.margin>
+                           <image>
+                              <Image url="@images/images%20(4).png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Search" textFill="#fffffff7">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="13.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Rectangle fx:id="searchSelectedOrNot" arcHeight="5.0" arcWidth="5.0" fill="#00000066" height="50.0" stroke="BLACK" strokeType="INSIDE" width="150.0" />
+               </children>
+            </StackPane>
+            <StackPane fx:id="btn_library" onMouseClicked="#goToLibrary" prefHeight="50.0" prefWidth="150.0">
+               <children>
+                  <HBox fx:id="libraryBackground" onMouseClicked="#goToLibrary" prefHeight="50.0" prefWidth="200.0" spacing="10.0" style="-fx-background-radius: 10; -fx-border-radius: 10;">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="30.0" prefWidth="30.0" spacing="5.0">
+                           <children>
+                              <Line endX="-100.0" endY="12.599994659423828" startX="-100.0" startY="-8.399991989135742" stroke="WHITE" strokeWidth="2.0" />
+                              <Line endX="-100.0" endY="12.599994659423828" startX="-100.0" startY="-8.399991989135742" stroke="WHITE" strokeWidth="2.0" />
+                              <Line endX="-98.05683135986328" endY="8.743157386779785" startX="-104.5422134399414" startY="-11.942138671875" stroke="WHITE" strokeWidth="2.0" />
+                           </children>
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </HBox>
+                        <Label text="Library" textFill="#fffffff7">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="12.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <Rectangle fx:id="librarySelectedOrNot" arcHeight="5.0" arcWidth="5.0" fill="#00000066" height="50.0" stroke="BLACK" strokeType="INSIDE" width="150.0" />
+               </children>
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </VBox.margin>
+            </StackPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

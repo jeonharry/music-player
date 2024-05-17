@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="110.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo8.PlayBarController">
+   <children>
+      <HBox fx:id="allOfPlayBar" alignment="CENTER_LEFT" prefHeight="110.0" prefWidth="800.0" spacing="10.0" style="-fx-background-color: #000000ed;">
+         <children>
+            <ImageView fx:id="cover" fitHeight="65.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets left="40.0" />
+               </HBox.margin>
+               <image>
+                  <Image url="@../../../../../../../../../demo4/src/main/resources/org/example/demo4/pic1.jpg" />
+               </image>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+            </ImageView>
+            <VBox fx:id="songInfo" prefHeight="140.0" prefWidth="430.0" spacing="3.0">
+               <children>
+                  <Label fx:id="nameOfSong" prefHeight="30.0" prefWidth="430.0" text="Label" textFill="#ffffffe5">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="songArtist" prefHeight="22.0" prefWidth="431.0" text="Label" textFill="#ffffffb2">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox fx:id="song" alignment="CENTER" prefHeight="140.0" prefWidth="220.0" spacing="5.0">
+               <children>
+                  <HBox fx:id="buttons" alignment="BOTTOM_CENTER" prefHeight="140.0" prefWidth="220.0" spacing="17.0">
+                     <children>
+                        <HBox fx:id="btn_back" alignment="BOTTOM_CENTER" onMouseClicked="#playPrevious" prefHeight="100.0" prefWidth="20.0">
+                           <HBox.margin>
+                              <Insets bottom="40.0" />
+                           </HBox.margin>
+                           <children>
+                              <Rectangle fx:id="rectBack" arcHeight="5.0" arcWidth="5.0" fill="#919191" height="16.0" stroke="BLACK" strokeType="INSIDE" width="5.0" />
+                              <ImageView fx:id="triangleBack" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
+                                 <image>
+                                    <Image url="@images/images.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <StackPane fx:id="btn_playOrPause" alignment="BOTTOM_CENTER" onMouseClicked="#playOrPause" prefHeight="46.0" prefWidth="46.0">
+                           <children>
+                              <Circle fx:id="circlePlayOrPause" fill="WHITE" radius="22.0" stroke="BLACK" strokeType="INSIDE">
+                                 <StackPane.margin>
+                                    <Insets bottom="30.0" />
+                                 </StackPane.margin>
+                              </Circle>
+                              <HBox fx:id="playShape" alignment="BOTTOM_CENTER" prefHeight="50.0" prefWidth="54.0" spacing="4.0">
+                                 <StackPane.margin>
+                                    <Insets bottom="29.5" right="0.5" />
+                                 </StackPane.margin>
+                                 <children>
+                                    <Rectangle fx:id="playRect1" arcHeight="5.0" arcWidth="5.0" height="20.0" stroke="BLACK" strokeType="INSIDE" width="5.0">
+                                       <HBox.margin>
+                                          <Insets bottom="13.0" />
+                                       </HBox.margin>
+                                    </Rectangle>
+                                    <Rectangle fx:id="playRect2" arcHeight="5.0" arcWidth="5.0" height="20.0" stroke="BLACK" strokeType="INSIDE" width="5.0">
+                                       <HBox.margin>
+                                          <Insets bottom="13.0" />
+                                       </HBox.margin>
+                                    </Rectangle>
+                                 </children>
+                              </HBox>
+                              <HBox fx:id="pauseShape" alignment="BOTTOM_CENTER" prefHeight="50.0" prefWidth="54.0" visible="false">
+                                 <StackPane.margin>
+                                    <Insets bottom="30.0" />
+                                 </StackPane.margin>
+                                 <children>
+                                    <ImageView fx:id="pauseTriangle" fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+                                       <image>
+                                          <Image url="@images/Black_triangle_with_thick_white_border.svg.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets bottom="9.5" left="7.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </StackPane>
+                        <HBox fx:id="btn_next" alignment="BOTTOM_CENTER" onMouseClicked="#playNext" prefHeight="100.0" prefWidth="20.0">
+                           <HBox.margin>
+                              <Insets bottom="40.0" />
+                           </HBox.margin>
+                           <children>
+                              <ImageView fx:id="triangleNext" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+                                 <image>
+                                    <Image url="@images/images.png" />
+                                 </image>
+                              </ImageView>
+                              <Rectangle fx:id="rectNext" arcHeight="5.0" arcWidth="5.0" fill="#919191" height="16.0" stroke="BLACK" strokeType="INSIDE" width="5.0">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Rectangle>
+                           </children>
+                        </HBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+               <HBox.margin>
+                  <Insets top="20.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
