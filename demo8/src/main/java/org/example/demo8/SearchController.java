@@ -14,8 +14,10 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import org.example.demo8.controller.Controller;
+import org.example.demo8.model.Database;
 import org.example.demo8.model.audioRelated.AudioModel;
 import org.example.demo8.model.users.AccountUserModel;
 import java.io.IOException;
@@ -105,6 +107,7 @@ public class SearchController implements Initializable {
                 {
                     SearchResultGeneratorController.setAudioOrArtist(true);
                     resultList.setVgap(5);
+
                     SearchResultGeneratorController.setAudioModel(temp);
                     FXMLLoader result=new FXMLLoader(Main.class.getResource("SearchResultGenerator.fxml"));
                     resultList.add(result.load(),0,counter++);
@@ -113,19 +116,14 @@ public class SearchController implements Initializable {
             for(AccountUserModel temp: ((ArrayList <AccountUserModel>)answer[1]))
                 if(temp!=null)
                 {
+
                     SearchResultGeneratorController.setAudioOrArtist(false);
                     resultList.setVgap(5);
+
                     SearchResultGeneratorController.setAccount(temp);
                     FXMLLoader result=new FXMLLoader(Main.class.getResource("SearchResultGenerator.fxml"));
                     resultList.add(result.load(),0,counter++);
                     resultList.setOpaqueInsets(new Insets(0,25,0,20));
-                }
-            for(Node node :resultList.getChildren())
-                if(node!=null)
-                {
-                    node.setOnMouseClicked(e ->{
-                        //lkbvlkv;kvn;vn;kvnsdvs
-                    });
                 }
         }
     }

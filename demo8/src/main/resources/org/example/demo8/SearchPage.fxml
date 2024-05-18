@@ -32,7 +32,7 @@
                         </TextField>
                         <ImageView fx:id="searchIcon" fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/images%20(1).png" />
+                              <Image url="@images/images (1).png" />
                            </image>
                            <StackPane.margin>
                               <Insets right="480.0" top="20.0" />
@@ -42,7 +42,7 @@
                   </StackPane>
                   <StackPane fx:id="blackSearchBox" prefHeight="55.0" prefWidth="650.0">
                      <children>
-                        <TextField fx:id="searchBoxBlack" alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="300.0" promptText="Search Here" stylesheets="@StyleTextField2.css">
+                        <TextField fx:id="searchBoxBlack" alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="300.0" promptText="Search Here"  stylesheets="@StyleTextField2.css">
                            <StackPane.margin>
                               <Insets left="50.0" right="50.0" top="20.0" />
                            </StackPane.margin>
@@ -52,7 +52,7 @@
                         </TextField>
                         <ImageView fx:id="searchIcon1" fitHeight="23.0" fitWidth="23.0" onMouseClicked="#search" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/images%20(4).png" />
+                              <Image url="@images/images (4).png" />
                            </image>
                            <StackPane.margin>
                               <Insets right="480.0" top="20.0" />
