@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="440.0" prefWidth="650.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo8.HomeController">
    <children>
-      <ScrollPane hbarPolicy="NEVER" prefHeight="440.0" prefWidth="620.0" style="-fx-border-color: #000000e0; -fx-background-color: #000000e0;" stylesheets="@StyleScrollBar.css" vbarPolicy="ALWAYS" AnchorPane.rightAnchor="3.0">
+      <ScrollPane hbarPolicy="NEVER" prefHeight="440.0" prefWidth="620.0" style="-fx-border-color: #000000e0; -fx-background-color: #000000e0;" stylesheets="@StyleScrollBar.css" AnchorPane.rightAnchor="3.0">
          <content>
             <GridPane fx:id="musicList" hgap="10.0" prefHeight="650.0" prefWidth="620.0" style="-fx-background-color: #000000e0;" vgap="10.0">
                <columnConstraints>

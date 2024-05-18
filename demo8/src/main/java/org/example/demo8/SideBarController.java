@@ -82,7 +82,7 @@ public class SideBarController implements Initializable,GeneralOperation {
         searchBackground.setStyle("-fx-background-color : #2e2e2e;-fx-background-radius :10;-fx-border-radius :10");
         homeBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
         libraryBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
-        //jjbkjblkaslcsvndlkvnsdclks
+        search();
     }
 
     @Override
@@ -102,8 +102,17 @@ public class SideBarController implements Initializable,GeneralOperation {
                 throw new RuntimeException(e);
             }
         }
+        else if(Controller.getController().getPageType().compareTo("search")==0)
+        {
+            searchSelectedOrNot.setVisible(false);
+            librarySelectedOrNot.setVisible(true);
+            homeSelectedOrNot.setVisible(true);
+            searchBackground.setStyle("-fx-background-color : #2e2e2e;-fx-background-radius :10;-fx-border-radius :10");
+            homeBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
+            libraryBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
+        }
 //        else if()
-        //knalflclscldvnsdlkcsncjlsbcksjdcbskjdcbskdjcbsdcsd
+//            //wljbckjwbckjwcbw
     }
 
     @Override
@@ -120,6 +129,9 @@ public class SideBarController implements Initializable,GeneralOperation {
 
     @Override
     public void search() {
-
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("SearchPage.fxml"));
+        try{
+            Controller.getController().getBasePage().centerProperty().setValue(fxmlLoader.load());
+        }catch (Exception e){}
     }
 }

@@ -31,6 +31,7 @@ public class HomeController implements Initializable {
     private GridPane musicList;
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        Controller.getController().setPageType("home");
         if(Controller.getController().getAccModel() instanceof ListenerModel)
             Controller.setMusics(ListenerController.getListenerController().getSuggestions());
         else

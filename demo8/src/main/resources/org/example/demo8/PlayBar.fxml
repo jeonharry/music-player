@@ -78,7 +78,7 @@
                                     <Insets bottom="30.0" />
                                  </StackPane.margin>
                               </Circle>
-                              <HBox fx:id="playShape" alignment="BOTTOM_CENTER" prefHeight="50.0" prefWidth="54.0" spacing="4.0">
+                              <HBox fx:id="playShape" alignment="BOTTOM_CENTER" prefHeight="50.0" prefWidth="54.0" spacing="4.0" visible="false">
                                  <StackPane.margin>
                                     <Insets bottom="29.5" right="0.5" />
                                  </StackPane.margin>
@@ -95,7 +95,7 @@
                                     </Rectangle>
                                  </children>
                               </HBox>
-                              <HBox fx:id="pauseShape" alignment="BOTTOM_CENTER" prefHeight="50.0" prefWidth="54.0" visible="false">
+                              <HBox fx:id="pauseShape" alignment="BOTTOM_CENTER" prefHeight="50.0" prefWidth="54.0">
                                  <StackPane.margin>
                                     <Insets bottom="30.0" />
                                  </StackPane.margin>

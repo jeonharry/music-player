@@ -9,6 +9,7 @@ import org.example.demo8.model.audioRelated.AudioModel;
 import org.example.demo8.model.audioRelated.MusicModel;
 import org.example.demo8.model.users.AccountUserModel;
 import org.example.demo8.model.users.AdminModel;
+import org.example.demo8.model.users.artists.ArtistModel;
 import org.example.demo8.model.users.artists.PodcasterModel;
 import org.example.demo8.model.users.artists.SingerModel;
 import org.example.demo8.model.users.listeners.ListenerModel;
@@ -172,5 +173,30 @@ public class Controller
             if(temp!=null)
                 answer.add(temp);
         return answer;
+    }
+    public ArrayList[] search(String audioOrArtistName)
+    {
+        ArrayList[] answer=new ArrayList[2];
+        answer[0]=new ArrayList<AudioModel>();
+        answer[1]=new ArrayList<ArtistModel>();
+        for(AudioModel temp:Database.getDatabase().getAllAudios())
+        {
+            if(temp!=null)
+            {
+                if(temp.getAudioName().compareTo(audioOrArtistName)==0)
+                    answer[0].add(temp);
+            }
+        }
+        for(AccountUserModel temp :Database.getDatabase().getAllUsers())
+        {
+            if(temp!=null)
+            {
+                if(temp instanceof ArtistModel && temp.getFullName().compareTo(audioOrArtistName)==0)
+                    answer[1].add(temp);
+            }
+        }
+        if(!(answer[0].isEmpty() && answer[1].isEmpty()))
+            return answer;
+        return null;
     }
 }

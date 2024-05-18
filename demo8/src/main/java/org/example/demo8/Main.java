@@ -9,6 +9,7 @@ import org.example.demo8.model.Database;
 import org.example.demo8.model.audioRelated.Genre;
 import org.example.demo8.model.audioRelated.MusicModel;
 import org.example.demo8.model.users.AdminModel;
+import org.example.demo8.model.users.artists.SingerModel;
 
 import java.io.IOException;
 
@@ -32,6 +33,7 @@ public class Main extends Application {
         Database.getDatabase().getAllAudios().add(new MusicModel("joon","aloo", Genre.POP,"https://ts2.tarafdari.com/contents/user6984/content-sound/09.summertime_sadness.mp3",Main.class.getResource("images/pic1.jpg").toExternalForm(),"lkk"));
         Database.getDatabase().getAllAudios().add(new MusicModel("joon","aloo", Genre.POP,"https://ts2.tarafdari.com/contents/user6984/content-sound/09.summertime_sadness.mp3",Main.class.getResource("images/pic1.jpg").toExternalForm(),"lkk"));
         Database.getDatabase().getAllAudios().add(new MusicModel("joon","aloo", Genre.POP,"https://ts2.tarafdari.com/contents/user6984/content-sound/09.summertime_sadness.mp3",Main.class.getResource("images/pic1.jpg").toExternalForm(),"lkk"));
+        Database.getDatabase().getAllUsers().add(new SingerModel("kjcbndc","cvjhcv","aloo","jbjhbc","09132082206","2004/5/8","sjkncjkdcb"));
         launch();
     }
 
