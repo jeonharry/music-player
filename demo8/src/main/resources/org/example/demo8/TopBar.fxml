@@ -38,8 +38,18 @@
                   </Label>
                </children>
             </StackPane>
-            <Rectangle fx:id="space" arcHeight="5.0" arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" width="350.0" />
-            <StackPane fx:id="loginSignup_btn" onMouseClicked="#showLoginSignupPage" prefHeight="150.0" prefWidth="200.0">
+            <Rectangle fx:id="space" arcHeight="5.0" arcWidth="5.0" height="50.0" stroke="BLACK" strokeType="INSIDE" width="260.0" />
+            <StackPane fx:id="buyPremium_btn" onMouseClicked="#showBuyPage" prefHeight="150.0" prefWidth="110.0">
+               <children>
+                  <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#303030" height="32.0" onMouseClicked="#showLoginSignupPage" stroke="BLACK" strokeType="INSIDE" width="120.0" />
+                  <Label text="Get Premium" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </StackPane>
+            <StackPane fx:id="loginSignup_btn" onMouseClicked="#showLoginSignupPage" prefHeight="150.0" prefWidth="160.0">
                <children>
                   <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#303030" height="30.0" onMouseClicked="#showLoginSignupPage" stroke="BLACK" strokeType="INSIDE" width="140.0" />
                   <Label fx:id="account_lbl" textFill="WHITE">

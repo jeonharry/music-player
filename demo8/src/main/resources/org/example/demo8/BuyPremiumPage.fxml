@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo8.BuyPremiumController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="800.0" spacing="30.0" style="-fx-background-color: #000000bf;">
+         <children>
+            <HBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="200.0">
+               <children>
+                  <StackPane fx:id="close_btn" onMouseClicked="#closePage" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 10; -fx-border-radius: 10;">
+                     <HBox.margin>
+                        <Insets right="80.0" />
+                     </HBox.margin>
+                     <children>
+                        <Line endX="62.19142532348633" endY="-22.982927322387695" rotate="45.0" startX="82.13573455810547" startY="-22.98287582397461" stroke="#ffffffd9" strokeLineCap="ROUND" strokeWidth="2.0" />
+                        <Line endX="62.19142532348633" endY="-22.982927322387695" rotate="-45.0" startX="82.13573455810547" startY="-22.98287582397461" stroke="#ffffffd9" strokeLineCap="ROUND" strokeWidth="2.0" />
+                     </children>
+                  </StackPane>
+               </children>
+               <VBox.margin>
+                  <Insets top="40.0" />
+               </VBox.margin>
+            </HBox>
+            <VBox prefHeight="400.0" prefWidth="100.0" spacing="12.0" style="-fx-background-color: #131313b2; -fx-background-radius: 10; -fx-border-radius: 10;">
+               <VBox.margin>
+                  <Insets left="200.0" right="200.0" />
+               </VBox.margin>
+               <children>
+                  <Label text="Pakages" textFill="#ffffffe5">
+                     <font>
+                        <Font name="System Bold" size="28.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="50.0" top="30.0" />
+                     </VBox.margin>
+                  </Label>
+                  <StackPane onMouseClicked="#selectThirty" prefHeight="60.0" prefWidth="130.0" style="-fx-background-radius: 50; -fx-border-radius: 50;">
+                     <VBox.margin>
+                        <Insets left="30.0" right="120.0" top="20.0" />
+                     </VBox.margin>
+                     <children>
+                        <StackPane fx:id="thirtySelected" prefHeight="60.0" prefWidth="130.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: #ffffffcc;" visible="false">
+                           <children>
+                              <Label text="30 Days               5$" textFill="#000000e5">
+                                 <font>
+                                    <Font name="System Bold" size="19.0" />
+                                 </font>
+                                 <StackPane.margin>
+                                    <Insets right="25.0" />
+                                 </StackPane.margin>
+                              </Label>
+                           </children>
+                        </StackPane>
+                        <StackPane fx:id="thirtyNotSelected" prefHeight="60.0" prefWidth="130.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: #404040;">
+                           <children>
+                              <Label text="30 Days               5$" textFill="#ffffffe5">
+                                 <font>
+                                    <Font name="System Bold" size="19.0" />
+                                 </font>
+                                 <StackPane.margin>
+                                    <Insets right="25.0" />
+                                 </StackPane.margin>
+                              </Label>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </StackPane>
+                  <StackPane onMouseClicked="#selectSixty" prefHeight="60.0" prefWidth="130.0" style="-fx-background-radius: 50; -fx-border-radius: 50;">
+                     <VBox.margin>
+                        <Insets left="30.0" right="120.0" />
+                     </VBox.margin>
+                     <children>
+                        <StackPane fx:id="sixtySelected" prefHeight="60.0" prefWidth="130.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: #ffffffcc;" visible="false">
+                           <children>
+                              <Label text="60 Days               9$" textFill="#000000e5">
+                                 <font>
+                                    <Font name="System Bold" size="19.0" />
+                                 </font>
+                                 <StackPane.margin>
+                                    <Insets right="25.0" />
+                                 </StackPane.margin>
+                              </Label>
+                           </children>
+                        </StackPane>
+                        <StackPane fx:id="sixtyNotSelected" prefHeight="60.0" prefWidth="130.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: #404040;">
+                           <children>
+                              <Label text="60 Days               9$" textFill="#ffffffe5">
+                                 <font>
+                                    <Font name="System Bold" size="19.0" />
+                                 </font>
+                                 <StackPane.margin>
+                                    <Insets right="25.0" />
+                                 </StackPane.margin>
+                              </Label>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </StackPane>
+                  <StackPane onMouseClicked="#selectOneHEighty" prefHeight="60.0" prefWidth="130.0" style="-fx-background-radius: 50; -fx-border-radius: 50;">
+                     <VBox.margin>
+                        <Insets left="30.0" right="120.0" />
+                     </VBox.margin>
+                     <children>
+                        <StackPane fx:id="oneHeightySelected" prefHeight="60.0" prefWidth="130.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: #ffffffcc;" visible="false">
+                           <children>
+                              <Label text="180 Days             14$" textFill="#000000e5">
+                                 <font>
+                                    <Font name="System Bold" size="19.0" />
+                                 </font>
+                                 <StackPane.margin>
+                                    <Insets right="10.0" />
+                                 </StackPane.margin>
+                              </Label>
+                           </children>
+                        </StackPane>
+                        <StackPane fx:id="oneHeightyNotSelected" prefHeight="60.0" prefWidth="130.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: #404040;">
+                           <children>
+                              <Label text="180 Days             14$" textFill="#ffffffe5">
+                                 <font>
+                                    <Font name="System Bold" size="19.0" />
+                                 </font>
+                                 <StackPane.margin>
+                                    <Insets right="10.0" />
+                                 </StackPane.margin>
+                              </Label>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </StackPane>
+                  <HBox prefHeight="60.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="error" text="your credit isn't enough " textFill="WHITE" visible="false">
+                           <HBox.margin>
+                              <Insets left="40.0" top="20.0" />
+                           </HBox.margin>
+                        </Label>
+                        <StackPane onMouseClicked="#buy" prefHeight="60.0" prefWidth="80.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: #000000e5;">
+                           <HBox.margin>
+                              <Insets left="90.0" top="20.0" />
+                           </HBox.margin>
+                           <children>
+                              <Label text="Buy" textFill="#ffffffcc">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </StackPane>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

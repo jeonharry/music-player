@@ -3,6 +3,7 @@ package org.example.demo8.controller;
 import org.example.demo8.LoginSignupPage;
 import org.example.demo8.exceptions.FreeAccountLimitException;
 import org.example.demo8.exceptions.InvalidFormatException;
+import org.example.demo8.exceptions.NotEnoughCredit;
 import org.example.demo8.model.Database;
 import org.example.demo8.model.audioRelated.*;
 import org.example.demo8.model.report.Report;
@@ -600,14 +601,13 @@ public class ListenerController
     {
         getListener().setListenerCredit(getListener().getListenerCredit()+Double.parseDouble(credit));
     }
-    public String buyPremium(String pack)
-    {
+    public String buyPremium(String pack) throws NotEnoughCredit {
         Subscription subscription;
         if(pack.compareTo("30")==0)
         {
             subscription=Subscription.THIRTY_DAYS;
             if(getListener().getListenerCredit()<subscription.getPrice())
-                return "your credit isn't enough";
+                throw new NotEnoughCredit();
             getListener().setListenerCredit(getListener().getListenerCredit()-subscription.getPrice());
             if(getListener() instanceof FreeListenerModel || (getListener() instanceof PremiumListenerModel && ((PremiumListenerModel) getListener()).getRemainingDays()<=0))
             {
@@ -644,7 +644,7 @@ public class ListenerController
         {
             subscription=Subscription.SIXTY_DAYS;
             if(getListener().getListenerCredit()<subscription.getPrice())
-                return "your credit isn't enough";
+                throw new NotEnoughCredit();
             getListener().setListenerCredit(getListener().getListenerCredit()-subscription.getPrice());
             if(getListener() instanceof FreeListenerModel || (getListener() instanceof PremiumListenerModel && ((PremiumListenerModel) getListener()).getRemainingDays()<=0))
             {
@@ -681,7 +681,7 @@ public class ListenerController
         {
             subscription=Subscription.ONEHEIGHTY_DAYS;
             if(getListener().getListenerCredit()<subscription.getPrice())
-                return "your credit isn't enough";
+                throw new NotEnoughCredit();
             getListener().setListenerCredit(getListener().getListenerCredit()-subscription.getPrice());
             if(getListener() instanceof FreeListenerModel || (getListener() instanceof PremiumListenerModel && ((PremiumListenerModel) getListener()).getRemainingDays()<=0))
             {

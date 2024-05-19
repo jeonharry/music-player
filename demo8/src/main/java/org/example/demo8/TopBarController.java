@@ -45,6 +45,9 @@ public class TopBarController implements Initializable,GeneralOperation {
     private ImageView logOutIcon;
 
     @FXML
+    private StackPane buyPremium_btn;
+
+    @FXML
     void showLoginSignupPage(MouseEvent event) throws IOException {
         if(Controller.getController().getAccModel()==null)
         {
@@ -67,6 +70,12 @@ public class TopBarController implements Initializable,GeneralOperation {
     }
     public void showPreviousPage(MouseEvent mouseEvent) {
         backTo();
+    }
+
+    @FXML
+    void showBuyPage(MouseEvent event) throws IOException {
+        FXMLLoader loader=new FXMLLoader(Main.class.getResource("BuyPremiumPage.fxml"));
+        Controller.getController().getStackPane().getChildren().add(loader.load());
     }
 
     @Override
