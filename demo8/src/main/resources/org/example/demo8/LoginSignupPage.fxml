@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo8.LoginSignupPage">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="800.0" spacing="30.0" style="-fx-background-color: #000000bf;">
+         <children>
+            <HBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="200.0">
+               <children>
+                  <StackPane fx:id="close_btn" onMouseClicked="#closePage" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 10; -fx-border-radius: 10;">
+                     <HBox.margin>
+                        <Insets right="80.0" />
+                     </HBox.margin>
+                     <children>
+                        <Line endX="62.19142532348633" endY="-22.982927322387695" rotate="45.0" startX="82.13573455810547" startY="-22.98287582397461" stroke="#ffffffd9" strokeLineCap="ROUND" strokeWidth="2.0" />
+                        <Line endX="62.19142532348633" endY="-22.982927322387695" rotate="-45.0" startX="82.13573455810547" startY="-22.98287582397461" stroke="#ffffffd9" strokeLineCap="ROUND" strokeWidth="2.0" />
+                     </children>
+                  </StackPane>
+               </children>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </HBox>
+            <VBox prefHeight="450.0" prefWidth="100.0" style="-fx-background-color: #131313; -fx-background-radius: 10; -fx-border-radius: 10;">
+               <VBox.margin>
+                  <Insets left="200.0" right="200.0" />
+               </VBox.margin>
+               <children>
+                  <TabPane fx:id="tabPane" prefHeight="500.0" prefWidth="100.0" stylesheets="@StyleTabPane.css" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab fx:id="LoginTab" text="Login">
+                           <content>
+                              <VBox prefHeight="200.0" prefWidth="100.0" spacing="15.0" style="-fx-background-color: #2b2b2b;">
+                                 <children>
+                                    <TextField fx:id="inputUserName" prefHeight="35.0" prefWidth="360.0" promptText="UserName" style="-fx-background-color: #434343;" stylesheets="@StyleTextFieldLogin.css">
+                                       <VBox.margin>
+                                          <Insets left="25.0" right="25.0" top="40.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </TextField>
+                                    <PasswordField fx:id="inputPassword" prefHeight="35.0" prefWidth="310.0" promptText="Password" style="-fx-background-color: #434343;" stylesheets="@StyleTextFieldLogin.css">
+                                       <VBox.margin>
+                                          <Insets left="25.0" right="25.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </PasswordField>
+                                    <Label fx:id="error_lbl" prefHeight="18.0" prefWidth="270.0" text="Label" textFill="#ff0000b2" visible="false">
+                                       <VBox.margin>
+                                          <Insets left="32.0" right="26.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="TRANSPARENT" height="5.0" stroke="TRANSPARENT" strokeType="INSIDE" width="200.0" />
+                                    <StackPane fx:id="login_btn" onMouseClicked="#login" prefHeight="15.0" prefWidth="280.0">
+                                       <children>
+                                          <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#ffffffe5" height="45.0" stroke="BLACK" strokeType="INSIDE" width="280.0" />
+                                          <Label text="Login">
+                                             <font>
+                                                <Font name="System Bold" size="21.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </StackPane>
+                                 </children>
+                              </VBox>
+                           </content></Tab>
+                      <Tab fx:id="signupTab" closable="false" text="SignUp">
+                           <content>
+                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" style="-fx-background-color: #2b2b2b;">
+                                 <children>
+                                    <ScrollPane hbarPolicy="NEVER" prefHeight="301.0" prefWidth="347.0" stylesheets="@StyleScrollBar.css">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                       <content>
+                                          <GridPane prefHeight="500.0" prefWidth="358.0" style="-fx-background-color: #2b2b2b;">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="0.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <TextField fx:id="inputFullName" prefHeight="35.0" prefWidth="360.0" promptText="FullName" style="-fx-background-color: #434343;" stylesheets="@StyleTextFieldLogin.css">
+                                                   <font>
+                                                      <Font size="13.0" />
+                                                   </font>
+                                                   <GridPane.margin>
+                                                      <Insets left="25.0" right="25.0" top="20.0" />
+                                                   </GridPane.margin>
+                                                </TextField>
+                                                <TextField fx:id="inputPhoneNumber" prefHeight="35.0" prefWidth="360.0" promptText="PhoneNumber" style="-fx-background-color: #434343;" stylesheets="@StyleTextFieldLogin.css" GridPane.rowIndex="1">
+                                                   <font>
+                                                      <Font size="13.0" />
+                                                   </font>
+                                                   <GridPane.margin>
+                                                      <Insets left="25.0" right="25.0" top="20.0" />
+                                                   </GridPane.margin>
+                                                </TextField>
+                                                <TextField fx:id="inputEmail" prefHeight="35.0" prefWidth="360.0" promptText="Email" style="-fx-background-color: #434343;" stylesheets="@StyleTextFieldLogin.css" GridPane.rowIndex="2">
+                                                   <font>
+                                                      <Font size="13.0" />
+                                                   </font>
+                                                   <GridPane.margin>
+                                                      <Insets left="25.0" right="25.0" top="20.0" />
+                                                   </GridPane.margin>
+                                                </TextField>
+                                                <DatePicker fx:id="inputBirthDate" prefHeight="30.0" prefWidth="360.0" promptText="BirthDate" style="-fx-background-color: #434343; -fx-border-color: #434343;" stylesheets="@StyleDatePeaker.css" GridPane.rowIndex="3">
+                                                   <GridPane.margin>
+                                                      <Insets left="25.0" right="25.0" top="20.0" />
+                                                   </GridPane.margin>
+                                                </DatePicker>
+                                                <TextField fx:id="inputUserNameSignup" prefHeight="35.0" prefWidth="360.0" promptText="UserName" style="-fx-background-color: #434343;" stylesheets="@StyleTextFieldLogin.css" GridPane.rowIndex="4">
+                                                   <font>
+                                                      <Font size="13.0" />
+                                                   </font>
+                                                   <GridPane.margin>
+                                                      <Insets left="25.0" right="25.0" top="20.0" />
+                                                   </GridPane.margin>
+                                                </TextField>
+                                                <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="7">
+                                                   <children>
+                                                      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+                                                         <children>
+                                                            <RadioButton fx:id="ListenerIsChosen" mnemonicParsing="false" onMouseClicked="#listenerChosen" stylesheets="@StyleRadioButton.css" text="Listener" textFill="#b4b4b4">
+                                                               <toggleGroup>
+                                                                  <ToggleGroup fx:id="choiseBoxes" />
+                                                               </toggleGroup>
+                                                            </RadioButton>
+                                                            <RadioButton fx:id="singerIsChosen" mnemonicParsing="false" onMouseClicked="#singerChosen" stylesheets="@StyleRadioButton.css" text="Singer" textFill="#b4b4b4" toggleGroup="$choiseBoxes" />
+                                                            <RadioButton fx:id="podcasterIsChosen" mnemonicParsing="false" onMouseClicked="#podcasterChosen" stylesheets="@StyleRadioButton.css" text="Podcaster" textFill="#b4b4b4" toggleGroup="$choiseBoxes" />
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                   <GridPane.margin>
+                                                      <Insets bottom="5.0" left="30.0" right="30.0" />
+                                                   </GridPane.margin>
+                                                </VBox>
+                                                <StackPane fx:id="signup_btn" onMouseClicked="#signup" prefHeight="15.0" prefWidth="280.0" GridPane.rowIndex="9">
+                                                   <children>
+                                                      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#ffffffe5" height="45.0" stroke="BLACK" strokeType="INSIDE" width="280.0" />
+                                                      <Label text="Signup">
+                                                         <font>
+                                                            <Font name="System Bold" size="21.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                   <GridPane.margin>
+                                                      <Insets bottom="20.0" />
+                                                   </GridPane.margin>
+                                                </StackPane>
+                                                <Label fx:id="errorSignup_lbl" prefHeight="18.0" prefWidth="270.0" text="Label" textFill="#ff0000b2" visible="false" GridPane.rowIndex="8">
+                                                   <font>
+                                                      <Font size="13.0" />
+                                                   </font>
+                                                   <GridPane.margin>
+                                                      <Insets bottom="35.0" left="35.0" right="25.0" />
+                                                   </GridPane.margin>
+                                                </Label>
+                                                <TextField fx:id="inputBio" prefHeight="35.0" prefWidth="360.0" promptText="Bio" style="-fx-background-color: #434343;" stylesheets="@StyleTextFieldLogin.css" visible="false" GridPane.rowIndex="6">
+                                                   <font>
+                                                      <Font size="13.0" />
+                                                   </font>
+                                                   <GridPane.margin>
+                                                      <Insets left="25.0" right="25.0" top="20.0" />
+                                                   </GridPane.margin>
+                                                </TextField>
+                                                <PasswordField fx:id="inputPasswordSignup" prefHeight="35.0" prefWidth="309.0" promptText="Password" style="-fx-background-color: #434343;" stylesheets="@StyleTextFieldLogin.css" GridPane.rowIndex="5">
+                                                   <GridPane.margin>
+                                                      <Insets left="25.0" right="25.0" top="20.0" />
+                                                   </GridPane.margin>
+                                                   <font>
+                                                      <Font size="13.0" />
+                                                   </font>
+                                                </PasswordField>
+                                             </children>
+                                          </GridPane>
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                              </VBox>
+                           </content></Tab>
+                    </tabs>
+                     <VBox.margin>
+                        <Insets bottom="30.0" left="20.0" right="20.0" top="80.0" />
+                     </VBox.margin>
+                  </TabPane>
+               </children>
+            </VBox>
+         </children></VBox>
+   </children>
+</AnchorPane>

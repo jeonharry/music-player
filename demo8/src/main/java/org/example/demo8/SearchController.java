@@ -5,7 +5,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
@@ -13,11 +12,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import org.example.demo8.controller.Controller;
-import org.example.demo8.model.Database;
 import org.example.demo8.model.audioRelated.AudioModel;
 import org.example.demo8.model.users.AccountUserModel;
 import java.io.IOException;
@@ -90,13 +89,22 @@ public class SearchController implements Initializable {
                 }
             }
         });
+        if(Controller.getController().getBasePage().getBottom()==null)
+        {
+            VBox background=new VBox(); background.setStyle("-fx-background-color: black;-fx-pref-height: 110");
+            Controller.getController().getBasePage().bottomProperty().setValue(background);
+        }
     }
     public void doSearch() throws IOException {
         resultList.getChildren().clear();
         int counter=0;
         ArrayList[] answer= Controller.getController().search(searchBoxBlack.getText());
         if(answer==null)
+        {
+            resultList.add(noResult,0,2);
             noResult.setVisible(true);
+            resultList.setOpaqueInsets(new Insets(0,210,0,220));
+        }
         else
         {
             if(answer[0].size()+answer[1].size()>resultList.getColumnCount()* resultList.getRowCount())

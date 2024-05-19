@@ -1,6 +1,7 @@
 package org.example.demo8.controller;
 
 
+import org.example.demo8.LoginSignupPage;
 import org.example.demo8.model.Database;
 import org.example.demo8.model.audioRelated.*;
 import org.example.demo8.model.users.AccountUserModel;
@@ -38,11 +39,13 @@ public class ArtistController
             {
                 SingerModel artistTemp=new SingerModel(userName,password,fullName,email,phoneNumber,birthDate,bio);
                 Database.getDatabase().getAllUsers().add(artistTemp);
+                LoginSignupPage.setSignedupAcc(artistTemp);
             }
             else if(accType.compareTo("P")==0)
             {
                 PodcasterModel artistTemp=new PodcasterModel(userName,password,fullName,email,phoneNumber,birthDate,bio);
                 Database.getDatabase().getAllUsers().add(artistTemp);
+                LoginSignupPage.setSignedupAcc(artistTemp);
             }
         }
         return answer;

@@ -9,10 +9,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox fx:id="vbox" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="190.0" spacing="3.0" style="-fx-background-radius: 15; -fx-border-radius: 15; -fx-background-color: #333333;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo8.MusicPlayerGeneratorController">
+<VBox fx:id="vbox" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="190.0" spacing="3.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: #202020;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo8.MusicPlayerGeneratorController">
    <children>
-      <Rectangle fx:id="cover" arcHeight="20.0" arcWidth="20.0" fill="TRANSPARENT" height="90.0" stroke="TRANSPARENT" strokeType="INSIDE" width="90.0">
+      <Rectangle fx:id="cover" arcHeight="13.0" arcWidth="13.0" fill="TRANSPARENT" height="90.0" stroke="TRANSPARENT" strokeType="INSIDE" width="90.0">
          <VBox.margin>
             <Insets top="10.0" />
          </VBox.margin>

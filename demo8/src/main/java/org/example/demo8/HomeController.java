@@ -43,12 +43,6 @@ public class HomeController implements Initializable {
             {
                 if(counter==Controller.getMusics().size())
                     break;
-//                ImageView cover=new ImageView(new Image(Controller.getMusics().get(counter).getCover())); cover.setFitHeight(90); cover.setFitWidth(90); cover.setEffect(new Lighting(new Light.Distant()));
-//                Label audioName=new Label(Controller.getMusics().get(counter).getAudioName()+" ("+Controller.getMusics().get(counter).getAudioID()+")"); audioName.setTextFill(Color.WHITE); audioName.setFont(Font.font("System", FontWeight.BOLD, 15));
-//                Label artist=new Label(Controller.getMusics().get(counter).getNameOfArtist()); artist.setTextFill(Paint.valueOf("#e4e4e4")); artist.setFont(Font.font("System", FontPosture.REGULAR, 12));
-//                VBox vbox=new VBox(cover,audioName,artist);
-//                vbox.setStyle("-fx-pref-height:80; -fx-pref-width: 80;-fx-alignment: center; -fx-border-radius: 20;");
-//                vbox.setSpacing(5);
                 MusicPlayerGeneratorController.setAudio(Controller.getMusics().get(counter));
                 FXMLLoader temp=new FXMLLoader(Main.class.getResource("MusicBoxGenerator.fxml"));
                 try {

@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 import org.example.demo8.controller.Controller;
 
 import java.io.IOException;
@@ -16,6 +17,9 @@ public class BasePageController implements Initializable {
     private static BasePageController basePage;
     @FXML
     private BorderPane borderPane;
+
+    @FXML
+    private StackPane mainStackPane;
 
     @FXML
     private AnchorPane root;
@@ -30,6 +34,7 @@ public class BasePageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Controller.getController().setBasePage(borderPane);
+        Controller.getController().setStackPane(mainStackPane);
         FXMLLoader fxmlLoaderSideBar = new FXMLLoader(Main.class.getResource("SideBar.fxml"));
         FXMLLoader fxmlLoaderTopBar = new FXMLLoader(Main.class.getResource("TopBar.fxml"));
         FXMLLoader fxmlLoaderMainSection = new FXMLLoader(Main.class.getResource("HomePage.fxml"));

@@ -1,12 +1,13 @@
 package org.example.demo8.controller;
 
+import javafx.scene.Node;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 import org.example.demo8.exceptions.InvalidFormatException;
 import org.example.demo8.exceptions.UserNotFoundException;
 import org.example.demo8.exceptions.WrongPasswordException;
 import org.example.demo8.model.Database;
 import org.example.demo8.model.audioRelated.AudioModel;
-import org.example.demo8.model.audioRelated.MusicModel;
 import org.example.demo8.model.users.AccountUserModel;
 import org.example.demo8.model.users.AdminModel;
 import org.example.demo8.model.users.artists.ArtistModel;
@@ -24,12 +25,22 @@ public class Controller
     private static Controller controller;
     private AccountUserModel accModel;
     private BorderPane basePage;
+    private StackPane stackPane;
+    private Node node;
     private Controller(){}
     public static Controller getController()
     {
         if(controller==null)
             controller=new Controller();
         return controller;
+    }
+    public Node getNode()
+    {
+        return this.node;
+    }
+    public StackPane getStackPane()
+    {
+        return this.stackPane;
     }
     public String getPageType()
     {
@@ -62,6 +73,14 @@ public class Controller
     public void setPageType(String pageType)
     {
         this.pageType = pageType;
+    }
+    public void setStackPane(StackPane stackPane)
+    {
+        this.stackPane = stackPane;
+    }
+    public void setNode(Node node)
+    {
+        this.node = node;
     }
     public String getAccType()
     {

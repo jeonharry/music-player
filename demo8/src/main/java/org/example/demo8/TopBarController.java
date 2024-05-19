@@ -1,8 +1,10 @@
 package org.example.demo8;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -10,9 +12,12 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import org.example.demo8.controller.ArtistController;
 import org.example.demo8.controller.Controller;
+import org.example.demo8.controller.ListenerController;
 import org.example.demo8.model.users.AccountUserModel;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -35,17 +40,30 @@ public class TopBarController implements Initializable,GeneralOperation {
 
     @FXML
     private Rectangle space;
-    private static AccountUserModel currentAccount= Controller.getController().getAccModel();
-    public static AccountUserModel getCurrentAccount() {
-        return currentAccount;
-    }
-    public static void setCurrentAccount(AccountUserModel currentAccount) {
-        TopBarController.currentAccount = currentAccount;
-    }
 
     @FXML
-    void showLoginSignupPage(MouseEvent event) {
+    private ImageView logOutIcon;
 
+    @FXML
+    void showLoginSignupPage(MouseEvent event) throws IOException {
+        if(Controller.getController().getAccModel()==null)
+        {
+            logOutIcon.setVisible(false);
+            FXMLLoader loader=new FXMLLoader(Main.class.getResource("LoginSignupPage.fxml"));
+            Controller.getController().getStackPane().getChildren().add(loader.load());
+        }
+        else
+        {
+            logOutIcon.setVisible(true);
+
+        }
+    }
+    @FXML
+    void logOut(MouseEvent event) {
+        logOutIcon.setVisible(false);
+        account_lbl.setText("Login / Signup");
+        logout();
+        event.consume();
     }
     public void showPreviousPage(MouseEvent mouseEvent) {
         backTo();
@@ -53,10 +71,14 @@ public class TopBarController implements Initializable,GeneralOperation {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        if(currentAccount==null)
+        logOutIcon.setVisible(false);
+        if(Controller.getController().getAccModel()==null)
             account_lbl.setText("Login / Signup");
         else
-            account_lbl.setText(currentAccount.getUserName());
+        {
+            account_lbl.setText(Controller.getController().getAccModel().getUserName());
+            logOutIcon.setVisible(true);
+        }
     }
 
     @Override
@@ -66,18 +88,25 @@ public class TopBarController implements Initializable,GeneralOperation {
 
     @Override
     public void logout() {
-
+        if(Controller.getController().getAccType().compareTo("L")==0)
+        {
+            ListenerController.getListenerController().setListener(null);
+            Controller.getController().setAccModel(null);
+        }
+        else if(Controller.getController().getAccType().compareTo("A")==0)
+            Controller.getController().setAccModel(null);
+        else
+        {
+            ArtistController.getArtistController().setArtist(null);
+            Controller.getController().setAccModel(null);
+        }
     }
 
     @Override
-    public void login() {
-
-    }
+    public void login() {}
 
     @Override
-    public void signup() {
-
-    }
+    public void signup() {}
 
     @Override
     public void search() {}

@@ -1,5 +1,6 @@
 package org.example.demo8.controller;
 
+import org.example.demo8.LoginSignupPage;
 import org.example.demo8.exceptions.FreeAccountLimitException;
 import org.example.demo8.exceptions.InvalidFormatException;
 import org.example.demo8.model.Database;
@@ -48,6 +49,7 @@ public class ListenerController
             tempListener.setSubscriptionExpiration(null);
             setListener(tempListener);
             Database.getDatabase().getAllUsers().add(tempListener);
+            LoginSignupPage.setSignedupAcc(tempListener);
         }
         return answer;
     }

@@ -2,6 +2,8 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
@@ -45,6 +47,14 @@
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Label>
+                  <ImageView fx:id="logOutIcon" fitHeight="13.0" fitWidth="13.0" onMouseClicked="#logOut" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@images/logout-icon-512x511-cy00wta1.png" />
+                     </image>
+                     <StackPane.margin>
+                        <Insets left="110.0" />
+                     </StackPane.margin>
+                  </ImageView>
                </children>
             </StackPane>
          </children>

@@ -1,0 +1,15 @@
+.radio-button:selected .radio .dot {
+    -fx-background-color: #aeaeae;
+    -fx-background-insets: 0;
+}
+.radio-button .radio .dot{
+    -fx-background-color: transparent;
+}
+.radio-button .radio
+{
+    -fx-background-color: transparent;
+    -fx-border-color: #aeaeae;
+    -fx-border-radius: 30;
+    -fx-pref-height: 15;
+    -fx-pref-width: 15;
+}
