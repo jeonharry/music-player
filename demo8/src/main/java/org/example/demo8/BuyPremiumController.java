@@ -5,8 +5,8 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
-import org.example.demo8.controller.Controller;
-import org.example.demo8.controller.ListenerController;
+import controller.Controller;
+import controller.ListenerController;
 
 public class BuyPremiumController {
 

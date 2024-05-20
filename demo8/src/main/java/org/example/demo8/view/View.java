@@ -1,12 +1,12 @@
 package org.example.demo8.view;
 
 
-import org.example.demo8.controller.AdminController;
-import org.example.demo8.controller.ArtistController;
-import org.example.demo8.controller.Controller;
-import org.example.demo8.controller.ListenerController;
-import org.example.demo8.model.audioRelated.AudioModel;
-import org.example.demo8.model.audioRelated.PlayListModel;
+import controller.AdminController;
+import controller.ArtistController;
+import controller.Controller;
+import controller.ListenerController;
+import model.audioRelated.AudioModel;
+import model.audioRelated.PlayListModel;
 
 import java.util.Scanner;
 

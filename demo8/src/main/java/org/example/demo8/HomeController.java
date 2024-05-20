@@ -5,14 +5,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import org.example.demo8.controller.Controller;
-import org.example.demo8.controller.ListenerController;
-import org.example.demo8.model.Database;
-import org.example.demo8.model.audioRelated.AudioModel;
-import org.example.demo8.model.users.listeners.ListenerModel;
+import controller.Controller;
+import controller.ListenerController;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import model.Database;
+import model.audioRelated.AudioModel;
+import model.users.listeners.ListenerModel;
 
 import java.io.IOException;
 import java.net.URL;
@@ -55,11 +59,37 @@ public class HomeController implements Initializable {
             }
         for(Node node :musicList.getChildren())
             node.setOnMouseClicked(event -> {
+                AudioModel previousAudio = null;
                 for(AudioModel temp: Database.getDatabase().getAllAudios())
                     if(temp!=null && temp.getAudioID()==Long.parseLong(((Label)((VBox)node).getChildren().getLast()).getText()))
-                        PlayBarController.setMusic(temp);
+                    {
+                        previousAudio=PlayBarController.getMusic();
+                        if(Controller.getController().isSideBarIsVisible())
+                        {
+                            PlayBarController.getCurrentMusic().pause();
+                            if(previousAudio!=null && temp.getAudioID()==previousAudio.getAudioID())
+                            {
+                                PlayMusicController.setCurrentMusic(PlayBarController.getCurrentMusic());
+                            }
+                            else
+                            {
+                                PlayBarController.getCurrentMusic().stop();
+                                PlayBarController.setCurrentMusic(new MediaPlayer(new Media(temp.getLink())));
+                                PlayBarController.setMusic(temp);
+                                PlayMusicController.setCurrentMusic(new MediaPlayer(new Media(temp.getLink())));
+                            }
+                        }
+                        else
+                        {
+                            PlayMusicController.setCurrentMusic(new MediaPlayer(new Media(temp.getLink())));
+                        }
+                        Controller.getController().setCurrentAudio(temp);
+                    }
                 try {
-                    BasePageController.getBasePage().setPlayBar();
+                    Controller.getController().setPreviousScene(Main.getStage().getScene());
+                    FXMLLoader loader=new FXMLLoader(Main.class.getResource("PlayMusicPage.fxml"));
+                    Scene newScene=new Scene(loader.load(),800,600);
+                    Main.getStage().setScene(newScene);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }

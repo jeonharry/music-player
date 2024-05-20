@@ -22,7 +22,7 @@
                      <children>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/images%20(2).png" />
+                              <Image url="@images/images(2).png" />
                            </image>
                            <HBox.margin>
                               <Insets left="30.0" top="10.0" />
@@ -56,7 +56,7 @@
                               <Insets left="30.0" top="10.0" />
                            </HBox.margin>
                            <image>
-                              <Image url="@images/images%20(4).png" />
+                              <Image url="@images/images(4).png" />
                            </image>
                         </ImageView>
                         <Label text="Search" textFill="#fffffff7">

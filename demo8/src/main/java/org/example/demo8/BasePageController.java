@@ -6,7 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
-import org.example.demo8.controller.Controller;
+import controller.Controller;
 
 import java.io.IOException;
 import java.net.URL;

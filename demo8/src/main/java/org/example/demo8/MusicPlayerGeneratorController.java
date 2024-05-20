@@ -7,7 +7,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
-import org.example.demo8.model.audioRelated.AudioModel;
+import model.audioRelated.AudioModel;
 
 import java.net.URL;
 import java.util.ResourceBundle;

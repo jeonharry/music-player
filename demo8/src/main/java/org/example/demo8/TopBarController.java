@@ -12,10 +12,10 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
-import org.example.demo8.controller.ArtistController;
-import org.example.demo8.controller.Controller;
-import org.example.demo8.controller.ListenerController;
-import org.example.demo8.model.users.AccountUserModel;
+import controller.ArtistController;
+import controller.Controller;
+import controller.ListenerController;
+import model.users.AccountUserModel;
 
 import java.io.IOException;
 import java.net.URL;
@@ -91,9 +91,7 @@ public class TopBarController implements Initializable,GeneralOperation {
     }
 
     @Override
-    public void backTo() {
-
-    }
+    public void backTo() {}
 
     @Override
     public void logout() {

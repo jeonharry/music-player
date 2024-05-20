@@ -10,7 +10,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
-import org.example.demo8.controller.Controller;
+import controller.Controller;
 
 import java.io.IOException;
 import java.net.URL;

@@ -6,10 +6,10 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
-import org.example.demo8.controller.ArtistController;
-import org.example.demo8.controller.Controller;
-import org.example.demo8.controller.ListenerController;
-import org.example.demo8.model.users.AccountUserModel;
+import controller.ArtistController;
+import controller.Controller;
+import controller.ListenerController;
+import model.users.AccountUserModel;
 
 public class LoginSignupPage implements GeneralOperation{
 
@@ -93,6 +93,39 @@ public class LoginSignupPage implements GeneralOperation{
 
     @FXML
     void signup(MouseEvent event) {
+        signup();
+    }
+
+    @FXML
+    void login(MouseEvent event) {
+        login();
+    }
+
+    @Override
+    public void backTo() {
+        Controller.getController().getStackPane().getChildren().removeLast();
+    }
+
+    @Override
+    public void logout() {}
+
+    @Override
+    public void login() {
+        error_lbl.setVisible(false);
+        try{
+            Controller.getController().logIn(inputUserName.getText(),inputPassword.getText());
+            backTo();
+            FXMLLoader topBarLoader=new FXMLLoader(Main.class.getResource("TopBar.fxml"));
+            Controller.getController().getBasePage().topProperty().setValue(topBarLoader.load());
+        }catch (Exception exception)
+        {
+            error_lbl.setVisible(true);
+            error_lbl.setText(exception.getMessage());
+        }
+    }
+
+    @Override
+    public void signup() {
         String answer = null;
         errorSignup_lbl.setVisible(false);
         if(!singerIsChosen.isSelected() && !podcasterIsChosen.isSelected() && !ListenerIsChosen.isSelected())
@@ -137,39 +170,6 @@ public class LoginSignupPage implements GeneralOperation{
             errorSignup_lbl.setVisible(true);
             errorSignup_lbl.setText(exception.getMessage());
         }
-    }
-
-    @FXML
-    void login(MouseEvent event) {
-        login();
-    }
-
-    @Override
-    public void backTo() {
-        Controller.getController().getStackPane().getChildren().removeLast();
-    }
-
-    @Override
-    public void logout() {}
-
-    @Override
-    public void login() {
-        error_lbl.setVisible(false);
-        try{
-            Controller.getController().logIn(inputUserName.getText(),inputPassword.getText());
-            backTo();
-            FXMLLoader topBarLoader=new FXMLLoader(Main.class.getResource("TopBar.fxml"));
-            Controller.getController().getBasePage().topProperty().setValue(topBarLoader.load());
-        }catch (Exception exception)
-        {
-            error_lbl.setVisible(true);
-            error_lbl.setText(exception.getMessage());
-        }
-    }
-
-    @Override
-    public void signup() {
-
     }
 
     @Override

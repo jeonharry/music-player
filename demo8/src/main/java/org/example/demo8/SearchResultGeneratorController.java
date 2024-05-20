@@ -6,8 +6,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
-import org.example.demo8.model.audioRelated.AudioModel;
-import org.example.demo8.model.users.AccountUserModel;
+import model.audioRelated.AudioModel;
+import model.users.AccountUserModel;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -35,7 +35,7 @@ public class SearchResultGeneratorController implements Initializable {
         }
         else
         {
-            pic.setImage(new Image(Main.class.getResourceAsStream("images/images (5).png")));
+            pic.setImage(new Image(Main.class.getResourceAsStream("images/images(5).png")));
             lbl_name.setText(account.getFullName());
         }
     }

@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo8.PlayMusicController">
+   <children>
+      <StackPane prefHeight="600.0" prefWidth="800.0">
+         <children>
+            <ScrollPane hbarPolicy="NEVER" prefHeight="800.0" prefWidth="800.0" vbarPolicy="NEVER">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="800.0" prefWidth="800.0">
+                     <children>
+                        <ImageView fx:id="backgroundImage" fitHeight="800.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/pic1.jpg" />
+                           </image>
+                           <effect>
+                              <BoxBlur height="10.0" iterations="3" width="10.0" />
+                           </effect>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+            <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="800.0" spacing="5.0" style="-fx-background-color: #000000a6;">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0" />
+                  <HBox prefHeight="30.0" prefWidth="200.0">
+                     <children>
+                        <StackPane fx:id="close_btn" onMouseClicked="#closePage" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 100; -fx-border-radius: 100;">
+                           <HBox.margin>
+                              <Insets left="80.0" />
+                           </HBox.margin>
+                           <children>
+                              <Label prefHeight="30.0" prefWidth="30.0" text="&lt;" textFill="#ffffffe5">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                                 <StackPane.margin>
+                                    <Insets left="5.0" />
+                                 </StackPane.margin>
+                              </Label>
+                           </children>
+                        </StackPane>
+                        <ImageView fx:id="showLyricOrCaption" fitHeight="25.0" fitWidth="25.0" onMouseClicked="#showLyricOrCaption" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+                           <HBox.margin>
+                              <Insets left="650.0" top="17.0" />
+                           </HBox.margin>
+                           <image>
+                              <Image url="@images/images(6).png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="cover" fitHeight="350.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets left="235.0" />
+                           </HBox.margin>
+                           <image>
+                              <Image url="@images/pic1.jpg" />
+                           </image>
+                        </ImageView>
+                        <VBox fx:id="lyricOrCaption" alignment="TOP_CENTER" prefHeight="492.0" prefWidth="160.0" style="-fx-background-color: #00000080;" visible="false">
+                           <children>
+                              <Label fx:id="lyricCaption" alignment="TOP_CENTER" prefHeight="351.0" prefWidth="156.0" text="Label" textFill="WHITE">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Label fx:id="songName" text="Label" textFill="#f4f4f4">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets right="580.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox prefHeight="25.0" prefWidth="200.0" spacing="10.0">
+                     <children>
+                        <Label fx:id="artistNameOfSong" text="Label" textFill="#bfbfbf">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="90.0" />
+                           </HBox.margin>
+                        </Label>
+                        <StackPane onMouseClicked="#like" prefHeight="23.0" prefWidth="23.0">
+                           <children>
+                              <ImageView fx:id="notLiked" fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/6fc86888567a524daec72c191feb5887.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="liked" fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@images/images(3).png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="550.0" />
+                           </HBox.margin>
+                        </StackPane>
+                        <StackPane prefHeight="23.0" prefWidth="23.0">
+                           <children>
+                              <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="23.0" prefWidth="23.0" style="-fx-background-color: transparent;">
+                                 <children>
+                                    <MenuButton fx:id="choosePlayListMenu" mnemonicParsing="false" popupSide="TOP" style="-fx-background-color: transparent;" stylesheets="@StyleMenuButton.css">
+                                       <StackPane.margin>
+                                          <Insets top="7.0" />
+                                       </StackPane.margin>
+                                    </MenuButton>
+                                    <Line endX="-77.70710754394531" endY="0.39289894700050354" startX="-94.64120483398438" startY="0.392891526222229" stroke="WHITE">
+                                       <StackPane.margin>
+                                          <Insets bottom="10.0" />
+                                       </StackPane.margin>
+                                    </Line>
+                                    <Line endX="-77.70710754394531" endY="0.39289894700050354" startX="-94.64120483398438" startY="0.392891526222229" stroke="WHITE" />
+                                    <Line endX="-77.70710754394531" endY="0.39289894700050354" startX="-94.64120483398438" startY="0.392891526222229" stroke="WHITE">
+                                       <StackPane.margin>
+                                          <Insets top="10.0" />
+                                       </StackPane.margin>
+                                    </Line>
+                                    <Line endX="-94.90711212158203" endY="-4.2521955037955195E-5" startX="-100.0" stroke="WHITE">
+                                       <StackPane.margin>
+                                          <Insets left="10.0" top="10.0" />
+                                       </StackPane.margin>
+                                    </Line>
+                                    <Line endX="-92.90483856201172" endY="0.03436880186200142" rotate="90.0" startX="-100.0" stroke="WHITE">
+                                       <StackPane.margin>
+                                          <Insets left="9.0" top="10.0" />
+                                       </StackPane.margin>
+                                    </Line>
+                                    <Line endX="96.84829711914062" endY="0.05432469770312309" rotate="90.0" startX="95.54705810546875" startY="-1.519918441772461E-5">
+                                       <StackPane.margin>
+                                          <Insets top="10.0" />
+                                       </StackPane.margin>
+                                    </Line>
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </HBox>
+                  <HBox fx:id="buttons" alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="220.0" spacing="30.0">
+                     <children>
+                        <HBox fx:id="btn_back" alignment="BOTTOM_CENTER" onMouseClicked="#playPrevious" prefHeight="100.0" prefWidth="20.0">
+                           <HBox.margin>
+                              <Insets bottom="45.0" />
+                           </HBox.margin>
+                           <children>
+                              <Rectangle fx:id="rectBack" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="16.0" stroke="WHITE" strokeType="INSIDE" width="3.0" />
+                              <ImageView fx:id="triangleBack" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
+                                 <image>
+                                    <Image url="@images/images1.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <StackPane fx:id="btn_playOrPause" alignment="BOTTOM_CENTER" onMouseClicked="#playOrPause" prefHeight="46.0" prefWidth="46.0">
+                           <children>
+                              <Circle fx:id="circlePlayOrPause" fill="WHITE" radius="25.0" stroke="BLACK" strokeType="INSIDE">
+                                 <StackPane.margin>
+                                    <Insets bottom="30.0" />
+                                 </StackPane.margin>
+                              </Circle>
+                              <HBox fx:id="playShape" alignment="BOTTOM_CENTER" prefHeight="50.0" prefWidth="54.0" spacing="4.0" visible="false">
+                                 <StackPane.margin>
+                                    <Insets bottom="32.0" right="0.5" />
+                                 </StackPane.margin>
+                                 <children>
+                                    <Rectangle fx:id="playRect1" arcHeight="5.0" arcWidth="5.0" height="20.0" stroke="BLACK" strokeType="INSIDE" width="5.0">
+                                       <HBox.margin>
+                                          <Insets bottom="13.0" />
+                                       </HBox.margin>
+                                    </Rectangle>
+                                    <Rectangle fx:id="playRect2" arcHeight="5.0" arcWidth="5.0" height="20.0" stroke="BLACK" strokeType="INSIDE" width="5.0">
+                                       <HBox.margin>
+                                          <Insets bottom="13.0" />
+                                       </HBox.margin>
+                                    </Rectangle>
+                                 </children>
+                              </HBox>
+                              <HBox fx:id="pauseShape" alignment="BOTTOM_CENTER" prefHeight="50.0" prefWidth="54.0">
+                                 <StackPane.margin>
+                                    <Insets bottom="30.0" />
+                                 </StackPane.margin>
+                                 <children>
+                                    <ImageView fx:id="pauseTriangle" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+                                       <image>
+                                          <Image url="@images/Black_triangle_with_thick_white_border.svg.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets bottom="13.0" left="6.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </StackPane>
+                        <HBox fx:id="btn_next" alignment="BOTTOM_CENTER" onMouseClicked="#playNext" prefHeight="100.0" prefWidth="20.0">
+                           <HBox.margin>
+                              <Insets bottom="45.0" />
+                           </HBox.margin>
+                           <children>
+                              <ImageView fx:id="triangleNext" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+                                 <image>
+                                    <Image url="@images/images1.png" />
+                                 </image>
+                              </ImageView>
+                              <Rectangle fx:id="rectNext" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="16.0" stroke="WHITE" strokeType="INSIDE" width="3.0">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Rectangle>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

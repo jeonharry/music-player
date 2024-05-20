@@ -14,8 +14,8 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
-import org.example.demo8.controller.Controller;
-import org.example.demo8.model.audioRelated.AudioModel;
+import controller.Controller;
+import model.audioRelated.AudioModel;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -87,7 +87,7 @@ public class PlayBarController implements Initializable {
     private ImageView triangleNext;
     private ArrayList <AudioModel>musics= Controller.getMusics();
     private int indexOfMusics=0;
-    private MediaPlayer currentMusic;
+    private static MediaPlayer currentMusic;
     private static AudioModel music;
 
     @FXML
@@ -162,7 +162,7 @@ public class PlayBarController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        currentMusic=new MediaPlayer(new Media(music.getLink()));
+//        currentMusic=new MediaPlayer(new Media(music.getLink()));
         songArtist.setText(music.getNameOfArtist());
         nameOfSong.setText(music.getAudioName());
         cover.setImage(new Image(music.getCover()));
@@ -175,5 +175,11 @@ public class PlayBarController implements Initializable {
     }
     public static void setMusic(AudioModel music) {
         PlayBarController.music = music;
+    }
+    public static MediaPlayer getCurrentMusic() {
+        return currentMusic;
+    }
+    public static void setCurrentMusic(MediaPlayer currentMusic) {
+        PlayBarController.currentMusic = currentMusic;
     }
 }

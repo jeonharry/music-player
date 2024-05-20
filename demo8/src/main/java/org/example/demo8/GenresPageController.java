@@ -6,10 +6,10 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
-import org.example.demo8.controller.Controller;
-import org.example.demo8.controller.ListenerController;
-import org.example.demo8.model.Database;
-import org.example.demo8.model.audioRelated.Genre;
+import controller.Controller;
+import controller.ListenerController;
+import model.Database;
+import model.audioRelated.Genre;
 
 import java.io.IOException;
 import java.util.ArrayList;
