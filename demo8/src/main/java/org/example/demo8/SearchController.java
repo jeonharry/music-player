@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
@@ -12,11 +14,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import controller.Controller;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import model.Database;
 import model.audioRelated.AudioModel;
 import model.users.AccountUserModel;
 import java.io.IOException;
@@ -133,6 +138,46 @@ public class SearchController implements Initializable {
                     resultList.add(result.load(),0,counter++);
                     resultList.setOpaqueInsets(new Insets(0,25,0,20));
                 }
+            for(Node node:resultList.getChildren())
+                node.setOnMouseClicked(event ->{
+                    if(((Label)((HBox)node).getChildren().getLast()).getText().compareTo("")!=0)
+                    {
+                        AudioModel previousAudio = null;
+                        for(AudioModel temp: Database.getDatabase().getAllAudios())
+                            if(temp!=null && temp.getAudioID()==Long.parseLong(((Label)((HBox)node).getChildren().getLast()).getText()))
+                            {
+                                previousAudio=PlayBarController.getMusic();
+                                if(Controller.getController().isSideBarIsVisible())
+                                {
+                                    PlayBarController.getCurrentMusic().pause();
+                                    if(previousAudio!=null && temp.getAudioID()==previousAudio.getAudioID())
+                                    {
+                                        PlayMusicController.setCurrentMusic(PlayBarController.getCurrentMusic());
+                                    }
+                                    else
+                                    {
+                                        PlayBarController.getCurrentMusic().stop();
+                                        PlayBarController.setCurrentMusic(new MediaPlayer(new Media(temp.getLink())));
+                                        PlayBarController.setMusic(temp);
+                                        PlayMusicController.setCurrentMusic(new MediaPlayer(new Media(temp.getLink())));
+                                    }
+                                }
+                                else
+                                {
+                                    PlayMusicController.setCurrentMusic(new MediaPlayer(new Media(temp.getLink())));
+                                }
+                                Controller.getController().setCurrentAudio(temp);
+                            }
+                        try {
+                            Controller.getController().setPreviousScene(Main.getStage().getScene());
+                            FXMLLoader loader=new FXMLLoader(Main.class.getResource("PlayMusicPage.fxml"));
+                            Scene newScene=new Scene(loader.load(),800,600);
+                            Main.getStage().setScene(newScene);
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                });
         }
     }
 }

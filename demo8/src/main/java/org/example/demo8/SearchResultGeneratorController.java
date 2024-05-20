@@ -32,11 +32,17 @@ public class SearchResultGeneratorController implements Initializable {
         {
             pic.setImage(new Image(audioModel.getCover()));
             lbl_name.setText(audioModel.getAudioName());
+            Label ID=new Label(String.valueOf(audioModel.getAudioID()));
+            result.getChildren().addLast(ID);
+            ID.setVisible(false);
         }
         else
         {
             pic.setImage(new Image(Main.class.getResourceAsStream("images/images(5).png")));
             lbl_name.setText(account.getFullName());
+            Label ID=new Label("");
+            result.getChildren().addLast(ID);
+            ID.setVisible(false);
         }
     }
 
