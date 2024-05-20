@@ -1,5 +1,6 @@
 package org.example.demo8;
 
+import controller.ListenerController;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,6 +25,8 @@ import javafx.scene.media.MediaPlayer;
 import model.Database;
 import model.audioRelated.AudioModel;
 import model.users.AccountUserModel;
+import model.users.listeners.ListenerModel;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -160,11 +163,15 @@ public class SearchController implements Initializable {
                                         PlayBarController.setCurrentMusic(new MediaPlayer(new Media(temp.getLink())));
                                         PlayBarController.setMusic(temp);
                                         PlayMusicController.setCurrentMusic(new MediaPlayer(new Media(temp.getLink())));
+                                        if(Controller.getController().getAccModel() instanceof ListenerModel)
+                                            ListenerController.getListenerController().playAudio(String.valueOf(temp.getAudioID()));
                                     }
                                 }
                                 else
                                 {
                                     PlayMusicController.setCurrentMusic(new MediaPlayer(new Media(temp.getLink())));
+                                    if(Controller.getController().getAccModel() instanceof ListenerModel)
+                                        ListenerController.getListenerController().playAudio(String.valueOf(temp.getAudioID()));
                                 }
                                 Controller.getController().setCurrentAudio(temp);
                             }

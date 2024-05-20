@@ -24,9 +24,28 @@ import model.users.listeners.ListenerModel;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.ResourceBundle;
 
 public class PlayMusicController implements Initializable {
+
+    @FXML
+    private Label lyricCaption1;
+
+    @FXML
+    private VBox moreInfo;
+
+    @FXML
+    private Label ID;
+
+    @FXML
+    private Label likeAmount;
+
+    @FXML
+    private Label releaseDate;
+
+    @FXML
+    private Label playAmount;
 
     @FXML
     private Label artistNameOfSong;
@@ -98,7 +117,8 @@ public class PlayMusicController implements Initializable {
     private ImageView triangleBack;
 
     @FXML
-    private VBox lyricOrCaption;
+    private ScrollPane lyricOrCaption;
+
     @FXML
     private ImageView triangleNext;
 
@@ -140,6 +160,7 @@ public class PlayMusicController implements Initializable {
 
     @FXML
     void playNext(MouseEvent event) {
+        moreInfo.setVisible(false);
         lyricOrCaption.setVisible(false);
         int counter=0;
         indexOfMusics++;
@@ -202,6 +223,7 @@ public class PlayMusicController implements Initializable {
 
     @FXML
     void playPrevious(MouseEvent event) {
+        moreInfo.setVisible(false);
         lyricOrCaption.setVisible(false);
         int counter=0;
         indexOfMusics--;
@@ -247,29 +269,48 @@ public class PlayMusicController implements Initializable {
     }
 
     @FXML
-    void showLyricOrCaption(MouseEvent event) {
-        if(lyricOrCaption.isVisible())
+    void showMoreInfo(MouseEvent event) {
+        if(moreInfo.isVisible())
+        {
+            moreInfo.setVisible(false);
+        }
+        else if(lyricOrCaption.isVisible())
         {
             lyricOrCaption.setVisible(false);
+            moreInfo.setVisible(true);
+            if(Controller.getController().getCurrentAudio() instanceof MusicModel)
+                lyricCaption.setText("Lyric");
+            else
+                lyricCaption.setText("Caption");
         }
         else
-        {
-            lyricOrCaption.setVisible(true);
-            if(Controller.getController().getCurrentAudio() instanceof MusicModel)
-                lyricCaption.setText(((MusicModel) Controller.getController().getCurrentAudio()).getLyric());
-            else if(Controller.getController().getCurrentAudio() instanceof PodcastModel)
-                lyricCaption.setText(((PodcastModel) Controller.getController().getCurrentAudio()).getCaption());
-        }
+            moreInfo.setVisible(true);
+    }
+    @FXML
+    void showLyricOrCaption(MouseEvent event) {
+        moreInfo.setVisible(false);
+        lyricOrCaption.setVisible(true);
+        if(Controller.getController().getCurrentAudio() instanceof MusicModel)
+            lyricCaption1.setText(((MusicModel) Controller.getController().getCurrentAudio()).getLyric());
+        else if(Controller.getController().getCurrentAudio() instanceof PodcastModel)
+            lyricCaption1.setText(((PodcastModel) Controller.getController().getCurrentAudio()).getCaption());
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        moreInfo.setVisible(false);
         lyricOrCaption.setVisible(false);
-//        if(!Controller.getController().isSideBarIsVisible())
-//            currentMusic = new MediaPlayer(new Media(Controller.getController().getCurrentAudio().getLink()));
         artistNameOfSong.setText(Controller.getController().getCurrentAudio().getNameOfArtist());
         songName.setText(Controller.getController().getCurrentAudio().getAudioName());
         cover.setImage(new Image(Controller.getController().getCurrentAudio().getCover()));
         backgroundImage.setImage(new Image(Controller.getController().getCurrentAudio().getCover()));
+        ID.setText("ID-"+String.valueOf(Controller.getController().getCurrentAudio().getAudioID()));
+        releaseDate.setText("Release date: "+Controller.getController().getCurrentAudio().getReleaseDate().get(Calendar.YEAR)+"/"+(Controller.getController().getCurrentAudio().getReleaseDate().get(Calendar.MONTH)+1)+"/"+Controller.getController().getCurrentAudio().getReleaseDate().get(Calendar.DATE));
+        playAmount.setText("plays: "+Controller.getController().getCurrentAudio().getPlayAmount());
+        likeAmount.setText("likes: "+Controller.getController().getCurrentAudio().getLikeAmount());
+        if(Controller.getController().getCurrentAudio() instanceof MusicModel)
+            lyricCaption.setText("Lyric");
+        else
+            lyricCaption.setText("Caption");
         currentMusic.play();
         playShape.setVisible(true);
         pauseShape.setVisible(false);

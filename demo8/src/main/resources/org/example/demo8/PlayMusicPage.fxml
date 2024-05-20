@@ -56,7 +56,7 @@
                               </Label>
                            </children>
                         </StackPane>
-                        <ImageView fx:id="showLyricOrCaption" fitHeight="25.0" fitWidth="25.0" onMouseClicked="#showLyricOrCaption" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+                        <ImageView fx:id="showLyricOrCaption" fitHeight="25.0" fitWidth="25.0" onMouseClicked="#showMoreInfo" pickOnBounds="true" preserveRatio="true" rotate="90.0">
                            <HBox.margin>
                               <Insets left="650.0" top="17.0" />
                            </HBox.margin>
@@ -79,21 +79,61 @@
                               <Image url="@images/pic1.jpg" />
                            </image>
                         </ImageView>
-                        <VBox fx:id="lyricOrCaption" alignment="TOP_CENTER" prefHeight="492.0" prefWidth="160.0" style="-fx-background-color: #00000080;" visible="false">
+                        <StackPane prefHeight="490.0" prefWidth="160.0">
                            <children>
-                              <Label fx:id="lyricCaption" alignment="TOP_CENTER" prefHeight="351.0" prefWidth="156.0" text="Label" textFill="WHITE">
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets top="10.0" />
-                                 </VBox.margin>
-                              </Label>
+                              <VBox fx:id="moreInfo" alignment="TOP_CENTER" prefHeight="492.0" prefWidth="160.0" spacing="10.0" style="-fx-background-color: #00000080; -fx-background-radius: 10;" visible="false">
+                                 <children>
+                                    <Label fx:id="ID" alignment="TOP_CENTER" prefHeight="22.0" prefWidth="156.0" text="Label" textFill="WHITE">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label fx:id="releaseDate" alignment="TOP_CENTER" prefHeight="22.0" prefWidth="156.0" text="Label" textFill="WHITE">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="playAmount" alignment="TOP_CENTER" prefHeight="22.0" prefWidth="156.0" text="Label" textFill="WHITE">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="likeAmount" alignment="TOP_CENTER" prefHeight="22.0" prefWidth="156.0" text="Label" textFill="WHITE">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="lyricCaption" alignment="TOP_CENTER" onMouseClicked="#showLyricOrCaption" prefHeight="22.0" prefWidth="156.0" text="Label" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <ScrollPane fx:id="lyricOrCaption" hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #00000080;" stylesheets="@StyleScrollBarPlayMusic.css" visible="false">
+                                 <content>
+                                    <VBox alignment="TOP_CENTER" prefHeight="492.0" prefWidth="160.0" spacing="10.0" style="-fx-background-color: #00000080;">
+                                       <children>
+                                          <Label fx:id="lyricCaption1" alignment="TOP_CENTER" prefHeight="486.0" prefWidth="156.0" text="Label" textFill="WHITE">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets top="5.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
                            </children>
                            <HBox.margin>
                               <Insets left="30.0" />
                            </HBox.margin>
-                        </VBox>
+                        </StackPane>
                      </children>
                   </HBox>
                   <Label fx:id="songName" text="Label" textFill="#f4f4f4">

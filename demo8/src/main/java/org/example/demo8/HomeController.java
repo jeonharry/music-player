@@ -77,11 +77,15 @@ public class HomeController implements Initializable {
                                 PlayBarController.setCurrentMusic(new MediaPlayer(new Media(temp.getLink())));
                                 PlayBarController.setMusic(temp);
                                 PlayMusicController.setCurrentMusic(new MediaPlayer(new Media(temp.getLink())));
+                                if(Controller.getController().getAccModel() instanceof ListenerModel)
+                                    ListenerController.getListenerController().playAudio(String.valueOf(temp.getAudioID()));
                             }
                         }
                         else
                         {
                             PlayMusicController.setCurrentMusic(new MediaPlayer(new Media(temp.getLink())));
+                            if(Controller.getController().getAccModel() instanceof ListenerModel)
+                                ListenerController.getListenerController().playAudio(String.valueOf(temp.getAudioID()));
                         }
                         Controller.getController().setCurrentAudio(temp);
                     }
