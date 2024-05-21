@@ -31,12 +31,21 @@ public class Controller
     private Scene previousScene;
     private AudioModel currentAudio;
     private boolean sideBarIsVisible=false;
+    private ArtistModel selectedArtist;
     private Controller(){}
     public static Controller getController()
     {
         if(controller==null)
             controller=new Controller();
         return controller;
+    }
+
+    public ArtistModel getSelectedArtist() {
+        return selectedArtist;
+    }
+
+    public void setSelectedArtist(ArtistModel selectedArtist) {
+        this.selectedArtist = selectedArtist;
     }
 
     public AudioModel getCurrentAudio() {

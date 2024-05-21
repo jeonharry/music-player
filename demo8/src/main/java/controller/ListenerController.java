@@ -192,6 +192,17 @@ public class ListenerController
             }
         return "artist doesn't exist";
     }
+    public String unfollowArtist(String artistUserName)
+    {
+        for(AccountUserModel temp:Database.getDatabase().getAllUsers())
+            if(temp instanceof ArtistModel && temp.getUserName().compareTo(artistUserName)==0)
+            {
+                ((ArtistModel) temp).getFollowers().remove(getListener());
+                getListener().getFollowings().remove((ArtistModel)temp);
+                return "added to followings";
+            }
+        return "artist doesn't exist";
+    }
     public String search(String audioOrArtistName)
     {
         boolean firstRound=true;

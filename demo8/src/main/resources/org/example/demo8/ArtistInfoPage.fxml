@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="440.0" prefWidth="620.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo8.ArtistInfoController">
+   <children>
+      <StackPane prefHeight="440.0" prefWidth="620.0">
+         <children>
+            <VBox prefHeight="440.0" prefWidth="620.0" style="-fx-background-color: #1b1b1b;">
+               <children>
+                  <HBox prefHeight="120.0" prefWidth="200.0" style="-fx-background-color: #00000099;">
+                     <children>
+                        <Label fx:id="userName_lbl" prefHeight="74.0" prefWidth="558.0" text="Label" textFill="#eaeaea">
+                           <font>
+                              <Font size="50.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="30.0" top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#showMoreInfo" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+                           <HBox.margin>
+                              <Insets top="35.0" />
+                           </HBox.margin>
+                           <image>
+                              <Image url="@images/images(6).png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <HBox alignment="BOTTOM_LEFT" prefHeight="80.0" prefWidth="620.0" style="-fx-background-color: #00000099;">
+                     <children>
+                        <StackPane alignment="BOTTOM_LEFT" onMouseClicked="#followOrUnfollow" prefHeight="40.0" prefWidth="60.0" style="-fx-background-radius: 45;">
+                           <children>
+                              <Rectangle fx:id="followBackground" arcHeight="45.0" arcWidth="45.0" fill="#04b846e5" height="40.0" stroke="TRANSPARENT" strokeType="INSIDE" width="100.0">
+                                 <StackPane.margin>
+                                    <Insets bottom="20.0" left="25.0" />
+                                 </StackPane.margin>
+                              </Rectangle>
+                              <Label fx:id="follow_lbl" text="Follow" textFill="#1e1e1e">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <StackPane.margin>
+                                    <Insets bottom="28.0" left="50.0" />
+                                 </StackPane.margin>
+                              </Label>
+                              <Rectangle fx:id="followedBackground" arcHeight="45.0" arcWidth="45.0" fill="#8c8c8ccc" height="40.0" stroke="TRANSPARENT" strokeType="INSIDE" visible="false" width="100.0">
+                                 <StackPane.margin>
+                                    <Insets bottom="20.0" left="25.0" />
+                                 </StackPane.margin>
+                              </Rectangle>
+                              <Label fx:id="followed_lbl" text="Following" textFill="#131313" visible="false">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <StackPane.margin>
+                                    <Insets bottom="28.0" left="41.0" />
+                                 </StackPane.margin>
+                              </Label>
+                           </children>
+                        </StackPane>
+                        <StackPane alignment="BOTTOM_LEFT" onMouseClicked="#report" prefHeight="40.0" prefWidth="90.0" style="-fx-background-radius: 45;">
+                           <children>
+                              <Rectangle fx:id="report_btn" arcHeight="45.0" arcWidth="45.0" fill="#5b5b5b66" height="40.0" stroke="TRANSPARENT" strokeType="INSIDE" width="90.0">
+                                 <StackPane.margin>
+                                    <Insets bottom="20.0" left="15.0" />
+                                 </StackPane.margin>
+                              </Rectangle>
+                              <Label text="Report" textFill="#bfbfbf">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                                 <StackPane.margin>
+                                    <Insets bottom="28.0" left="35.0" />
+                                 </StackPane.margin>
+                              </Label>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </HBox>
+                  <StackPane prefHeight="240.0" prefWidth="620.0">
+                     <children>
+                        <VBox fx:id="Podcasts" prefHeight="240.0" prefWidth="620.0" visible="false">
+                           <children>
+                              <Label text="Podcasts" textFill="#b7b7b7">
+                                 <VBox.margin>
+                                    <Insets left="30.0" top="10.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1b1b1b;" stylesheets="@StyleScrollBar.css" vbarPolicy="NEVER">
+                                 <content>
+                                    <GridPane fx:id="podcastsList" hgap="20.0" prefHeight="168.0" prefWidth="820.0" style="-fx-background-color: #1b1b1b;">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                    </GridPane>
+                                 </content>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                        <VBox fx:id="albums" prefHeight="240.0" prefWidth="620.0" spacing="10.0" visible="false">
+                           <children>
+                              <Label text="Albums" textFill="#b7b7b7">
+                                 <VBox.margin>
+                                    <Insets left="30.0" top="10.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1b1b1b;" stylesheets="@StyleScrollBar.css">
+                                 <content>
+                                    <GridPane fx:id="albumList" hgap="10.0" prefHeight="322.0" prefWidth="618.0" style="-fx-background-color: #1b1b1b;">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints maxHeight="197.19996337890626" minHeight="10.0" prefHeight="177.19996337890626" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="240.79999999999998" minHeight="10.0" prefHeight="138.00003662109378" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="151.99998168945314" minHeight="0.0" prefHeight="6.200024414062511" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                 </content>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </StackPane>
+               </children>
+            </VBox>
+            <VBox fx:id="moreInfo" alignment="TOP_CENTER" prefHeight="400.0" prefWidth="100.0" spacing="10.0" style="-fx-background-color: #59595999; -fx-background-radius: 10;" visible="false">
+               <StackPane.margin>
+                  <Insets bottom="60.0" left="370.0" right="20.0" top="60.0" />
+               </StackPane.margin>
+               <children>
+                  <Label fx:id="fullName_lbl" text="Label" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="birthDate_lbl" text="Label" textFill="WHITE">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="email_lbl" text="Label" textFill="WHITE">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

@@ -25,6 +25,7 @@ import javafx.scene.media.MediaPlayer;
 import model.Database;
 import model.audioRelated.AudioModel;
 import model.users.AccountUserModel;
+import model.users.artists.ArtistModel;
 import model.users.listeners.ListenerModel;
 
 import java.io.IOException;
@@ -123,7 +124,6 @@ public class SearchController implements Initializable {
                 {
                     SearchResultGeneratorController.setAudioOrArtist(true);
                     resultList.setVgap(5);
-
                     SearchResultGeneratorController.setAudioModel(temp);
                     FXMLLoader result=new FXMLLoader(Main.class.getResource("SearchResultGenerator.fxml"));
                     resultList.add(result.load(),0,counter++);
@@ -132,10 +132,8 @@ public class SearchController implements Initializable {
             for(AccountUserModel temp: ((ArrayList <AccountUserModel>)answer[1]))
                 if(temp!=null)
                 {
-
                     SearchResultGeneratorController.setAudioOrArtist(false);
                     resultList.setVgap(5);
-
                     SearchResultGeneratorController.setAccount(temp);
                     FXMLLoader result=new FXMLLoader(Main.class.getResource("SearchResultGenerator.fxml"));
                     resultList.add(result.load(),0,counter++);
@@ -180,6 +178,18 @@ public class SearchController implements Initializable {
                             FXMLLoader loader=new FXMLLoader(Main.class.getResource("PlayMusicPage.fxml"));
                             Scene newScene=new Scene(loader.load(),800,600);
                             Main.getStage().setScene(newScene);
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                    else
+                    {
+                        for(AccountUserModel acc:Database.getDatabase().getAllUsers())
+                            if(acc!=null && acc.getUserName().compareTo(((Label)((HBox)node).getChildren().get(2)).getText())==0)
+                                Controller.getController().setSelectedArtist((ArtistModel) acc);
+                        FXMLLoader loader=new FXMLLoader(Main.class.getResource("ArtistInfoPage.fxml"));
+                        try {
+                            Controller.getController().getBasePage().centerProperty().setValue(loader.load());
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }
