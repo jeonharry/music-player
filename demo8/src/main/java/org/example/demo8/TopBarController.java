@@ -99,7 +99,7 @@ public class TopBarController implements Initializable,GeneralOperation {
             else if(Controller.getController().getPreviousPage().compareTo("search")==0)
                 Controller.getController().getBasePage().centerProperty().setValue(new FXMLLoader(Main.class.getResource("SearchPage.fxml")).load());
 //            else if(Controller.getController().getPreviousPage().compareTo("library")==0)
-//                
+//
 
         }catch (Exception exception) {}
     }
