@@ -91,7 +91,18 @@ public class TopBarController implements Initializable,GeneralOperation {
     }
 
     @Override
-    public void backTo() {}
+    public void backTo() {
+        try
+        {
+            if(Controller.getController().getPreviousPage().compareTo("home")==0)
+                Controller.getController().getBasePage().centerProperty().setValue(new FXMLLoader(Main.class.getResource("HomePage.fxml")).load());
+            else if(Controller.getController().getPreviousPage().compareTo("search")==0)
+                Controller.getController().getBasePage().centerProperty().setValue(new FXMLLoader(Main.class.getResource("SearchPage.fxml")).load());
+//            else if(Controller.getController().getPreviousPage().compareTo("library")==0)
+//                
+
+        }catch (Exception exception) {}
+    }
 
     @Override
     public void logout() {

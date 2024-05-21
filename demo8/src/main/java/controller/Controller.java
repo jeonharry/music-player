@@ -32,12 +32,21 @@ public class Controller
     private AudioModel currentAudio;
     private boolean sideBarIsVisible=false;
     private ArtistModel selectedArtist;
+    private String previousPage="home";
     private Controller(){}
     public static Controller getController()
     {
         if(controller==null)
             controller=new Controller();
         return controller;
+    }
+
+    public String getPreviousPage() {
+        return previousPage;
+    }
+
+    public void setPreviousPage(String previousPage) {
+        this.previousPage = previousPage;
     }
 
     public ArtistModel getSelectedArtist() {

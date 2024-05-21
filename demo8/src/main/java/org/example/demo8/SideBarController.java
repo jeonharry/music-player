@@ -55,6 +55,10 @@ public class SideBarController implements Initializable,GeneralOperation {
 
     @FXML
     void goToHomePage(MouseEvent event) throws IOException {
+        if(librarySelectedOrNot.isVisible() && homeSelectedOrNot.isVisible())
+            Controller.getController().setPreviousPage("search");
+        if(searchSelectedOrNot.isVisible() && homeSelectedOrNot.isVisible())
+            Controller.getController().setPreviousPage("library");
         homeSelectedOrNot.setVisible(false);
         librarySelectedOrNot.setVisible(true);
         searchSelectedOrNot.setVisible(true);
@@ -67,6 +71,10 @@ public class SideBarController implements Initializable,GeneralOperation {
 
     @FXML
     void goToLibrary(MouseEvent event) {
+        if(librarySelectedOrNot.isVisible() && homeSelectedOrNot.isVisible())
+            Controller.getController().setPreviousPage("search");
+        if(librarySelectedOrNot.isVisible() && searchSelectedOrNot.isVisible())
+            Controller.getController().setPreviousPage("home");
         librarySelectedOrNot.setVisible(false);
         searchSelectedOrNot.setVisible(true);
         homeSelectedOrNot.setVisible(true);
@@ -86,6 +94,10 @@ public class SideBarController implements Initializable,GeneralOperation {
 
     @FXML
     void search(MouseEvent event) {
+        if(librarySelectedOrNot.isVisible() && searchSelectedOrNot.isVisible())
+            Controller.getController().setPreviousPage("home");
+        if(searchSelectedOrNot.isVisible() && homeSelectedOrNot.isVisible())
+            Controller.getController().setPreviousPage("library");
         searchSelectedOrNot.setVisible(false);
         librarySelectedOrNot.setVisible(true);
         homeSelectedOrNot.setVisible(true);

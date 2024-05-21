@@ -15,6 +15,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
 import model.audioRelated.AudioModel;
 import model.audioRelated.MusicModel;
 import model.audioRelated.PlayListModel;
@@ -28,6 +29,10 @@ import java.util.Calendar;
 import java.util.ResourceBundle;
 
 public class PlayMusicController implements Initializable {
+
+
+    @FXML
+    private Slider slider;
 
     @FXML
     private Label lyricCaption1;
@@ -122,6 +127,12 @@ public class PlayMusicController implements Initializable {
     @FXML
     private ImageView triangleNext;
 
+    @FXML
+    private Label time_lbl;
+
+    @FXML
+    private Label totaltime_lbl;
+
     private ArrayList<AudioModel> musics= Controller.getMusics();
     private int indexOfMusics=0;
     private static MediaPlayer currentMusic;
@@ -178,7 +189,22 @@ public class PlayMusicController implements Initializable {
                 Controller.getController().setCurrentAudio(temp);
                 currentMusic=new MediaPlayer(new Media(temp.getLink()));
                 if(playShape.isVisible())
+                {
+                    currentMusic.currentTimeProperty().addListener((obs,oldTime,newTime)->{
+                        updateMediaProgress();
+                    });
+                    currentMusic.setOnReady(()->{
+                        slider.setMax(currentMusic.getMedia().getDuration().toSeconds());
+                        updateMediaProgress();
+                    });
+                    slider.valueProperty().addListener((obs,oldValue,newValue)->{
+                        if(slider.isValueChanging())
+                        {
+                            currentMusic.seek(Duration.seconds(newValue.doubleValue()));
+                        }
+                    });
                     currentMusic.play();
+                }
                 songName.setText(temp.getAudioName());
                 artistNameOfSong.setText(temp.getNameOfArtist());
                 cover.setImage(new Image(temp.getCover()));
@@ -241,7 +267,22 @@ public class PlayMusicController implements Initializable {
                 Controller.getController().setCurrentAudio(temp);
                 currentMusic=new MediaPlayer(new Media(temp.getLink()));
                 if(playShape.isVisible())
+                {
+                    currentMusic.currentTimeProperty().addListener((obs,oldTime,newTime)->{
+                        updateMediaProgress();
+                    });
+                    currentMusic.setOnReady(()->{
+                        slider.setMax(currentMusic.getMedia().getDuration().toSeconds());
+                        updateMediaProgress();
+                    });
+                    slider.valueProperty().addListener((obs,oldValue,newValue)->{
+                        if(slider.isValueChanging())
+                        {
+                            currentMusic.seek(Duration.seconds(newValue.doubleValue()));
+                        }
+                    });
                     currentMusic.play();
+                }
                 songName.setText(temp.getAudioName());
                 artistNameOfSong.setText(temp.getNameOfArtist());
                 cover.setImage(new Image(temp.getCover()));
@@ -311,6 +352,19 @@ public class PlayMusicController implements Initializable {
             lyricCaption.setText("Lyric");
         else
             lyricCaption.setText("Caption");
+        currentMusic.currentTimeProperty().addListener((obs,oldTime,newTime)->{
+            updateMediaProgress();
+        });
+        currentMusic.setOnReady(()->{
+            slider.setMax(currentMusic.getMedia().getDuration().toSeconds());
+            updateMediaProgress();
+        });
+        slider.valueProperty().addListener((obs,oldValue,newValue)->{
+            if(slider.isValueChanging())
+            {
+                currentMusic.seek(Duration.seconds(newValue.doubleValue()));
+            }
+        });
         currentMusic.play();
         playShape.setVisible(true);
         pauseShape.setVisible(false);
@@ -355,5 +409,17 @@ public class PlayMusicController implements Initializable {
 
     public static void setCurrentMusic(MediaPlayer currentMusic) {
         PlayMusicController.currentMusic = currentMusic;
+    }
+    public void updateMediaProgress()
+    {
+        Duration currentTime=currentMusic.getCurrentTime();
+        Duration totalTime=currentMusic.getMedia().getDuration();
+        long totalSeconds= (long) (totalTime.toSeconds()%60);
+        long totalMins= (long) (totalTime.toSeconds()/60);
+        long currentSeconds= (long) (currentTime.toSeconds()%60);
+        long currentMins= (long) (currentTime.toSeconds()/60);
+        time_lbl.setText(currentMins+":"+currentSeconds);
+        totaltime_lbl.setText(totalMins+":"+totalSeconds);
+        slider.setValue(currentTime.toSeconds());
     }
 }
