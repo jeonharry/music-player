@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -11,6 +12,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import controller.Controller;
+import model.users.listeners.ListenerModel;
 
 import java.io.IOException;
 import java.net.URL;
@@ -71,7 +73,15 @@ public class SideBarController implements Initializable,GeneralOperation {
         libraryBackground.setStyle("-fx-background-color : #2e2e2e;-fx-background-radius :10;-fx-border-radius :10");
         homeBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
         searchBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
-        //khkfjydjyln;km;lsdcmas;
+        if(!(Controller.getController().getAccModel() instanceof ListenerModel))
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("its for listeners only");
+            alert.showAndWait();
+        }
+//        else
+            //jkgkgfyfuyfyuy
     }
 
     @FXML
@@ -111,8 +121,15 @@ public class SideBarController implements Initializable,GeneralOperation {
             homeBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
             libraryBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
         }
-//        else if()
-//            //wljbckjwbckjwcbw
+        else if(Controller.getController().getPageType().compareTo("library")==0)
+        {
+            librarySelectedOrNot.setVisible(false);
+            searchSelectedOrNot.setVisible(true);
+            homeSelectedOrNot.setVisible(true);
+            libraryBackground.setStyle("-fx-background-color : #2e2e2e;-fx-background-radius :10;-fx-border-radius :10");
+            homeBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
+            searchBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
+        }
     }
 
     @Override

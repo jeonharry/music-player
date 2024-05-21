@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo8.ReportPageController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="800.0" spacing="30.0" style="-fx-background-color: #000000bf;">
+         <children>
+            <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <StackPane fx:id="close_btn" onMouseClicked="#closePage" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 10; -fx-border-radius: 10;">
+                     <HBox.margin>
+                        <Insets right="80.0" />
+                     </HBox.margin>
+                     <children>
+                        <Line endX="62.19142532348633" endY="-22.982927322387695" rotate="45.0" startX="82.13573455810547" startY="-22.98287582397461" stroke="#ffffffd9" strokeLineCap="ROUND" strokeWidth="2.0" />
+                        <Line endX="62.19142532348633" endY="-22.982927322387695" rotate="-45.0" startX="82.13573455810547" startY="-22.98287582397461" stroke="#ffffffd9" strokeLineCap="ROUND" strokeWidth="2.0" />
+                     </children>
+                  </StackPane>
+               </children>
+               <VBox.margin>
+                  <Insets top="40.0" />
+               </VBox.margin>
+            </HBox>
+            <VBox prefHeight="300.0" prefWidth="100.0" spacing="12.0" style="-fx-background-color: #131313b2; -fx-background-radius: 10; -fx-border-radius: 10;">
+               <VBox.margin>
+                  <Insets left="200.0" right="200.0" />
+               </VBox.margin>
+               <children>
+                  <Label text="Report" textFill="#ffffffe5">
+                     <font>
+                        <Font name="System Bold" size="28.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="40.0" top="30.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextArea fx:id="explanation" prefHeight="125.0" prefWidth="339.0" promptText="Explanation" style="-fx-background-color: black;" stylesheets="@StyleTextArea.css">
+                     <VBox.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextArea>
+                  <HBox prefHeight="60.0" prefWidth="200.0">
+                     <children>
+                        <StackPane onMouseClicked="#report" prefHeight="60.0" prefWidth="80.0" style="-fx-background-radius: 50; -fx-border-radius: 50; -fx-background-color: #000000e5;">
+                           <HBox.margin>
+                              <Insets left="40.0" top="20.0" />
+                           </HBox.margin>
+                           <children>
+                              <Label text="Report" textFill="#ffffffcc">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </StackPane>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
