@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="440.0" prefWidth="620.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.demo8.ShowPlayListController">
+   <children>
+      <StackPane prefHeight="440.0" prefWidth="620.0">
+         <children>
+            <VBox prefHeight="440.0" prefWidth="620.0" style="-fx-background-color: #1b1b1b;">
+               <children>
+                  <HBox prefHeight="160.0" prefWidth="620.0" style="-fx-background-color: #00000099;">
+                     <children>
+                        <Label fx:id="name_lbl" prefHeight="74.0" prefWidth="558.0" text="Label" textFill="#eaeaea">
+                           <font>
+                              <Font size="50.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="30.0" top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#showMoreInfo" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+                           <HBox.margin>
+                              <Insets top="35.0" />
+                           </HBox.margin>
+                           <image>
+                              <Image url="@images/images(6).png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <StackPane prefHeight="240.0" prefWidth="620.0">
+                     <children>
+                        <VBox prefHeight="240.0" prefWidth="620.0">
+                           <children>
+                              <ScrollPane hbarPolicy="NEVER" prefHeight="219.0" prefWidth="567.0" style="-fx-background-color: #1b1b1b;" stylesheets="@StyleScrollBar.css">
+                                 <content>
+                                    <GridPane fx:id="audioList" hgap="20.0" prefHeight="423.0" prefWidth="623.0" style="-fx-background-color: #1b1b1b;">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                 </content>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </StackPane>
+               </children>
+            </VBox>
+            <VBox fx:id="moreInfo" alignment="TOP_CENTER" prefHeight="10.0" prefWidth="230.0" spacing="10.0" style="-fx-background-color: #59595999; -fx-background-radius: 10;" visible="false">
+               <StackPane.margin>
+                  <Insets bottom="300.0" left="450.0" right="20.0" top="60.0" />
+               </StackPane.margin>
+               <children>
+                  <Label fx:id="ID_lbl" text="Label" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

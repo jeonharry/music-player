@@ -15,11 +15,8 @@ import model.audioRelated.MusicModel;
 import model.audioRelated.PlayListModel;
 import model.audioRelated.PodcastModel;
 import model.users.AdminModel;
-import model.users.artists.PodcasterModel;
 import model.users.artists.SingerModel;
-import model.users.listeners.FreeListenerModel;
 import model.users.listeners.ListenerModel;
-import org.example.demo8.view.View;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -75,6 +72,12 @@ public class Main extends Application {
         Database.getDatabase().getAllUsers().add(singer);
         PodcastModel o=new PodcastModel("kjh","aloo",Genre.POP,"https://ts2.tarafdari.com/contents/user6984/content-sound/09.summertime_sadness.mp3",Main.class.getResource("images/pic1.jpg").toExternalForm(),"sbvj");
         PodcastModel o2=new PodcastModel("rer","aloo",Genre.POP,"https://ts9.tarafdari.com/contents/user749487/content-sound/lana_del_rey_-_radio.mp3",Main.class.getResource("images/pic3.jpg").toExternalForm(),"sbvj");
+        ListenerModel listener=new ListenerModel("lk","123","kjhg","kksdbnvjsdb","09132082206","2004/8/9");
+        ArrayList <PlayListModel> p=new ArrayList<>();
+        PlayListModel ii=new PlayListModel("joojoo","lk"); p.add(ii);
+        ii.getAudios().add(music);
+        ii.getAudios().add(music1);
+        listener.setPlayLists(p);
 //        ArrayList <PodcastModel>ps=new ArrayList<>();
 //        ps.add(o); ps.add(o2);
 //        o.setAudioID(145); o2.setAudioID(8998);
