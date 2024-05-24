@@ -20,6 +20,16 @@ import java.util.ResourceBundle;
 
 public class SideBarController implements Initializable,GeneralOperation {
 
+
+    @FXML
+    private HBox allAudiosBackground;
+
+    @FXML
+    private Rectangle allAudiosSelectedOrNot;
+
+    @FXML
+    private StackPane btn_allAudios;
+
     @FXML
     private StackPane btn_home;
 
@@ -62,9 +72,11 @@ public class SideBarController implements Initializable,GeneralOperation {
         homeSelectedOrNot.setVisible(false);
         librarySelectedOrNot.setVisible(true);
         searchSelectedOrNot.setVisible(true);
+        allAudiosSelectedOrNot.setVisible(true);
         homeBackground.setStyle("-fx-background-color : #2e2e2e;-fx-background-radius :10;-fx-border-radius :10");
         searchBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
         libraryBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
+        allAudiosBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("HomePage.fxml"));
         Controller.getController().getBasePage().centerProperty().setValue(fxmlLoader.load());
     }
@@ -78,9 +90,11 @@ public class SideBarController implements Initializable,GeneralOperation {
         librarySelectedOrNot.setVisible(false);
         searchSelectedOrNot.setVisible(true);
         homeSelectedOrNot.setVisible(true);
+        allAudiosSelectedOrNot.setVisible(true);
         libraryBackground.setStyle("-fx-background-color : #2e2e2e;-fx-background-radius :10;-fx-border-radius :10");
         homeBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
         searchBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
+        allAudiosBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
         if(!(Controller.getController().getAccModel() instanceof ListenerModel))
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -101,10 +115,26 @@ public class SideBarController implements Initializable,GeneralOperation {
         searchSelectedOrNot.setVisible(false);
         librarySelectedOrNot.setVisible(true);
         homeSelectedOrNot.setVisible(true);
+        allAudiosSelectedOrNot.setVisible(true);
         searchBackground.setStyle("-fx-background-color : #2e2e2e;-fx-background-radius :10;-fx-border-radius :10");
         homeBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
         libraryBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
+        allAudiosBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
         search();
+    }
+
+    @FXML
+    void goToAllAudios(MouseEvent event) throws IOException {
+        searchSelectedOrNot.setVisible(true);
+        librarySelectedOrNot.setVisible(true);
+        homeSelectedOrNot.setVisible(true);
+        allAudiosSelectedOrNot.setVisible(false);
+        searchBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
+        homeBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
+        libraryBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
+        allAudiosBackground.setStyle("-fx-background-color : #2e2e2e;-fx-background-radius :10;-fx-border-radius :10");
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("AllAudiosPage.fxml"));
+        Controller.getController().getBasePage().centerProperty().setValue(fxmlLoader.load());
     }
 
     @Override
@@ -114,9 +144,11 @@ public class SideBarController implements Initializable,GeneralOperation {
             homeSelectedOrNot.setVisible(false);
             librarySelectedOrNot.setVisible(true);
             searchSelectedOrNot.setVisible(true);
+            allAudiosSelectedOrNot.setVisible(true);
             homeBackground.setStyle("-fx-background-color : #2e2e2e;-fx-background-radius :10;-fx-border-radius :10");
             searchBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
             libraryBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
+            allAudiosBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("HomePage.fxml"));
             try {
                 Controller.getController().getBasePage().centerProperty().setValue(fxmlLoader.load());
@@ -129,18 +161,33 @@ public class SideBarController implements Initializable,GeneralOperation {
             searchSelectedOrNot.setVisible(false);
             librarySelectedOrNot.setVisible(true);
             homeSelectedOrNot.setVisible(true);
+            allAudiosSelectedOrNot.setVisible(true);
             searchBackground.setStyle("-fx-background-color : #2e2e2e;-fx-background-radius :10;-fx-border-radius :10");
             homeBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
             libraryBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
+            allAudiosBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
         }
         else if(Controller.getController().getPageType().compareTo("library")==0)
         {
             librarySelectedOrNot.setVisible(false);
             searchSelectedOrNot.setVisible(true);
             homeSelectedOrNot.setVisible(true);
+            allAudiosSelectedOrNot.setVisible(true);
             libraryBackground.setStyle("-fx-background-color : #2e2e2e;-fx-background-radius :10;-fx-border-radius :10");
             homeBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
             searchBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
+            allAudiosBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
+        }
+        else if(Controller.getController().getPageType().compareTo("allaudios")==0)
+        {
+            librarySelectedOrNot.setVisible(true);
+            searchSelectedOrNot.setVisible(true);
+            homeSelectedOrNot.setVisible(true);
+            allAudiosSelectedOrNot.setVisible(false);
+            libraryBackground.setStyle("-fx-background-color : #2e2e2e;-fx-background-radius :10;-fx-border-radius :10");
+            homeBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
+            searchBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
+            allAudiosBackground.setStyle("-fx-background-color : #2e2e2e;-fx-background-radius :10;-fx-border-radius :10");
         }
     }
 

@@ -19,6 +19,7 @@ import model.users.artists.PodcasterModel;
 import model.users.artists.SingerModel;
 import model.users.listeners.FreeListenerModel;
 import model.users.listeners.ListenerModel;
+import org.example.demo8.view.View;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -51,7 +52,7 @@ public class Main extends Application {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         AdminModel admin=AdminModel.getAdmin("MK","jk1997","Marzieh Karami","marzieh666@gmail.com","09132082206","2005/2/1");
         MusicModel music=new MusicModel("lkj","kjhhh", Genre.POP,"https://ts9.tarafdari.com/contents/user749487/content-sound/lana_del_rey_-_radio.mp3",Main.class.getResource("images/pic3.jpg").toExternalForm(),"lkk");
         music.setAudioID(123548);
