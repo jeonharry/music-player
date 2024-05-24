@@ -71,6 +71,8 @@ public class Main extends Application {
         podcaster.getAlbums().getFirst().getMusics().add(music);
         podcaster.getAlbums().get(1).getMusics().add(music1);
         Database.getDatabase().getAllUsers().add(podcaster);
+        SingerModel singer=new SingerModel("lana","123","aloo","khbkuvk","0912354698","2004/8/9","kjhhggg");
+        Database.getDatabase().getAllUsers().add(singer);
         PodcastModel o=new PodcastModel("kjh","aloo",Genre.POP,"https://ts2.tarafdari.com/contents/user6984/content-sound/09.summertime_sadness.mp3",Main.class.getResource("images/pic1.jpg").toExternalForm(),"sbvj");
         PodcastModel o2=new PodcastModel("rer","aloo",Genre.POP,"https://ts9.tarafdari.com/contents/user749487/content-sound/lana_del_rey_-_radio.mp3",Main.class.getResource("images/pic3.jpg").toExternalForm(),"sbvj");
 //        ArrayList <PodcastModel>ps=new ArrayList<>();

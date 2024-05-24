@@ -22,6 +22,15 @@ public class SideBarController implements Initializable,GeneralOperation {
 
 
     @FXML
+    private HBox allArtistsBackground;
+
+    @FXML
+    private Rectangle allArtistsSelectedOrNot;
+
+    @FXML
+    private StackPane btn_allArtists;
+
+    @FXML
     private HBox allAudiosBackground;
 
     @FXML
@@ -65,36 +74,48 @@ public class SideBarController implements Initializable,GeneralOperation {
 
     @FXML
     void goToHomePage(MouseEvent event) throws IOException {
-        if(librarySelectedOrNot.isVisible() && homeSelectedOrNot.isVisible())
+        if(!searchSelectedOrNot.isVisible())
             Controller.getController().setPreviousPage("search");
-        if(searchSelectedOrNot.isVisible() && homeSelectedOrNot.isVisible())
+        if(!librarySelectedOrNot.isVisible())
             Controller.getController().setPreviousPage("library");
+        if(!allAudiosSelectedOrNot.isVisible())
+            Controller.getController().setPreviousPage("allaudios");
+        if(!allArtistsSelectedOrNot.isVisible())
+            Controller.getController().setPreviousPage("allartists");
         homeSelectedOrNot.setVisible(false);
         librarySelectedOrNot.setVisible(true);
         searchSelectedOrNot.setVisible(true);
         allAudiosSelectedOrNot.setVisible(true);
+        allArtistsSelectedOrNot.setVisible(true);
         homeBackground.setStyle("-fx-background-color : #2e2e2e;-fx-background-radius :10;-fx-border-radius :10");
         searchBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
         libraryBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
         allAudiosBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
+        allArtistsBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("HomePage.fxml"));
         Controller.getController().getBasePage().centerProperty().setValue(fxmlLoader.load());
     }
 
     @FXML
     void goToLibrary(MouseEvent event) {
-        if(librarySelectedOrNot.isVisible() && homeSelectedOrNot.isVisible())
+        if(!searchSelectedOrNot.isVisible())
             Controller.getController().setPreviousPage("search");
-        if(librarySelectedOrNot.isVisible() && searchSelectedOrNot.isVisible())
+        if(!homeSelectedOrNot.isVisible())
             Controller.getController().setPreviousPage("home");
+        if(!allAudiosSelectedOrNot.isVisible())
+            Controller.getController().setPreviousPage("allaudios");
+        if(!allArtistsSelectedOrNot.isVisible())
+            Controller.getController().setPreviousPage("allartists");
         librarySelectedOrNot.setVisible(false);
         searchSelectedOrNot.setVisible(true);
         homeSelectedOrNot.setVisible(true);
         allAudiosSelectedOrNot.setVisible(true);
+        allArtistsSelectedOrNot.setVisible(true);
         libraryBackground.setStyle("-fx-background-color : #2e2e2e;-fx-background-radius :10;-fx-border-radius :10");
         homeBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
         searchBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
         allAudiosBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
+        allArtistsBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
         if(!(Controller.getController().getAccModel() instanceof ListenerModel))
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -108,32 +129,72 @@ public class SideBarController implements Initializable,GeneralOperation {
 
     @FXML
     void search(MouseEvent event) {
-        if(librarySelectedOrNot.isVisible() && searchSelectedOrNot.isVisible())
+        if(!homeSelectedOrNot.isVisible())
             Controller.getController().setPreviousPage("home");
-        if(searchSelectedOrNot.isVisible() && homeSelectedOrNot.isVisible())
+        if(!librarySelectedOrNot.isVisible())
             Controller.getController().setPreviousPage("library");
+        if(!allAudiosSelectedOrNot.isVisible())
+            Controller.getController().setPreviousPage("allaudios");
+        if(!allArtistsSelectedOrNot.isVisible())
+            Controller.getController().setPreviousPage("allartists");
         searchSelectedOrNot.setVisible(false);
         librarySelectedOrNot.setVisible(true);
         homeSelectedOrNot.setVisible(true);
         allAudiosSelectedOrNot.setVisible(true);
+        allArtistsSelectedOrNot.setVisible(true);
         searchBackground.setStyle("-fx-background-color : #2e2e2e;-fx-background-radius :10;-fx-border-radius :10");
         homeBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
         libraryBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
         allAudiosBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
+        allArtistsBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
         search();
     }
 
     @FXML
     void goToAllAudios(MouseEvent event) throws IOException {
+        if(!searchSelectedOrNot.isVisible())
+            Controller.getController().setPreviousPage("search");
+        if(!librarySelectedOrNot.isVisible())
+            Controller.getController().setPreviousPage("library");
+        if(!homeSelectedOrNot.isVisible())
+            Controller.getController().setPreviousPage("home");
+        if(!allArtistsSelectedOrNot.isVisible())
+            Controller.getController().setPreviousPage("allartists");
         searchSelectedOrNot.setVisible(true);
         librarySelectedOrNot.setVisible(true);
         homeSelectedOrNot.setVisible(true);
         allAudiosSelectedOrNot.setVisible(false);
+        allArtistsSelectedOrNot.setVisible(true);
         searchBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
         homeBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
         libraryBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
         allAudiosBackground.setStyle("-fx-background-color : #2e2e2e;-fx-background-radius :10;-fx-border-radius :10");
+        allArtistsBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("AllAudiosPage.fxml"));
+        Controller.getController().getBasePage().centerProperty().setValue(fxmlLoader.load());
+    }
+
+    @FXML
+    void goToAllArtists(MouseEvent event) throws IOException {
+        if(!searchSelectedOrNot.isVisible())
+            Controller.getController().setPreviousPage("search");
+        if(!librarySelectedOrNot.isVisible())
+            Controller.getController().setPreviousPage("library");
+        if(!homeSelectedOrNot.isVisible())
+            Controller.getController().setPreviousPage("home");
+        if(!allAudiosSelectedOrNot.isVisible())
+            Controller.getController().setPreviousPage("allaudios");
+        searchSelectedOrNot.setVisible(true);
+        librarySelectedOrNot.setVisible(true);
+        homeSelectedOrNot.setVisible(true);
+        allAudiosSelectedOrNot.setVisible(true);
+        allArtistsSelectedOrNot.setVisible(false);
+        searchBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
+        homeBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
+        libraryBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
+        allAudiosBackground.setStyle("-fx-background-color : black;-fx-background-radius :10;-fx-border-radius :10");
+        allArtistsBackground.setStyle("-fx-background-color : #2e2e2e;-fx-background-radius :10;-fx-border-radius :10");
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("AllArtistsPage.fxml"));
         Controller.getController().getBasePage().centerProperty().setValue(fxmlLoader.load());
     }
 

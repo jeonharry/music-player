@@ -265,4 +265,14 @@ public class Controller
             return answer;
         return null;
     }
+    public ArrayList <ArtistModel> getArtists()
+    {
+        ArrayList <ArtistModel> answer=new ArrayList<>();
+        for(AccountUserModel temp:Database.getDatabase().getAllUsers())
+            if(temp instanceof ArtistModel)
+            {
+                answer.add((ArtistModel) temp);
+            }
+        return answer;
+    }
 }
