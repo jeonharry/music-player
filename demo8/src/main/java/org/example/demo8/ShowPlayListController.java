@@ -52,7 +52,7 @@ public class ShowPlayListController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Controller.getController().setPreviousPage("library");
         name_lbl.setText(playList.getPlayListName());
-        ID_lbl.setText(String.valueOf(playList.getPlayListID()));
+        ID_lbl.setText(String.valueOf("ID: "+playList.getPlayListID()));
         int counter=0;
         for(AudioModel temp :playList.getAudios())
             if(temp!=null)

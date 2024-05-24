@@ -1,8 +1,6 @@
 package org.example.demo8;
 
 import controller.ArtistController;
-import controller.Controller;
-import controller.ListenerController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 
@@ -78,6 +76,7 @@ public class Main extends Application {
         ii.getAudios().add(music);
         ii.getAudios().add(music1);
         listener.setPlayLists(p);
+        Database.getDatabase().getAllUsers().add(listener);
 //        ArrayList <PodcastModel>ps=new ArrayList<>();
 //        ps.add(o); ps.add(o2);
 //        o.setAudioID(145); o2.setAudioID(8998);

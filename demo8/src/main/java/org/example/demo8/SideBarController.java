@@ -97,7 +97,7 @@ public class SideBarController implements Initializable,GeneralOperation {
     }
 
     @FXML
-    void goToLibrary(MouseEvent event) {
+    void goToLibrary(MouseEvent event) throws IOException {
         if(!searchSelectedOrNot.isVisible())
             Controller.getController().setPreviousPage("search");
         if(!homeSelectedOrNot.isVisible())
@@ -123,8 +123,11 @@ public class SideBarController implements Initializable,GeneralOperation {
             alert.setHeaderText("its for listeners only");
             alert.showAndWait();
         }
-//        else
-            //jkgkgfyfuyfyuy
+        else
+        {
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("LibraryPage.fxml"));
+            Controller.getController().getBasePage().centerProperty().setValue(fxmlLoader.load());
+        }
     }
 
     @FXML
