@@ -98,7 +98,8 @@ public class TopBarController implements Initializable,GeneralOperation {
                 Controller.getController().getBasePage().centerProperty().setValue(new FXMLLoader(Main.class.getResource("HomePage.fxml")).load());
             else if(Controller.getController().getPreviousPage().compareTo("search")==0)
                 Controller.getController().getBasePage().centerProperty().setValue(new FXMLLoader(Main.class.getResource("SearchPage.fxml")).load());
-//            else if(Controller.getController().getPreviousPage().compareTo("library")==0)
+            else if(Controller.getController().getPreviousPage().compareTo("library")==0)
+                Controller.getController().getBasePage().centerProperty().setValue(new FXMLLoader(Main.class.getResource("LibraryPage.fxml")).load());
             else if(Controller.getController().getPreviousPage().compareTo("allaudios")==0)
                 Controller.getController().getBasePage().centerProperty().setValue(new FXMLLoader(Main.class.getResource("AllAudiosPage.fxml")).load());
             else if(Controller.getController().getPreviousPage().compareTo("allartists")==0)
