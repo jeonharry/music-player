@@ -434,14 +434,20 @@ public class ListenerController
         Map.Entry <Genre,Long>[] mostPlayedGenre=getTopTenMostPlayedGenre();
         Map.Entry <Genre,Long>[] likedGenres=getGenreOfLikedAudios();
         ArrayList <Genre> genres=new ArrayList<>();
-        if(mostPlayedGenre[0].getKey()!=null)
-            genres.add(mostPlayedGenre[0].getKey());
-        if(mostPlayedGenre[1].getKey()!=null && !genres.contains(mostPlayedGenre[1].getKey()))
-            genres.add(mostPlayedGenre[1].getKey());
-        if(likedGenres[0].getKey()!=null && !genres.contains(likedGenres[0].getKey()))
-            genres.add(likedGenres[0].getKey());
-        if(likedGenres[1].getKey()!=null && !genres.contains(likedGenres[1].getKey()))
-            genres.add(likedGenres[1].getKey());
+        if(mostPlayedGenre.length>=1)
+        {
+            if(mostPlayedGenre[0].getKey()!=null)
+                genres.add(mostPlayedGenre[0].getKey());
+            if(mostPlayedGenre[1].getKey()!=null && !genres.contains(mostPlayedGenre[1].getKey()))
+                genres.add(mostPlayedGenre[1].getKey());
+        }
+        if(likedGenres.length>=1)
+        {
+            if(likedGenres[0].getKey()!=null && !genres.contains(likedGenres[0].getKey()))
+                genres.add(likedGenres[0].getKey());
+            if(likedGenres[1].getKey()!=null && !genres.contains(likedGenres[1].getKey()))
+                genres.add(likedGenres[1].getKey());
+        }
         if(getListener().getFavGenres().get(0)!=null && !genres.contains(getListener().getFavGenres().get(0)))
             genres.add(getListener().getFavGenres().get(0));
         if(getListener().getFavGenres().get(1)!=null && !genres.contains(getListener().getFavGenres().get(1)))

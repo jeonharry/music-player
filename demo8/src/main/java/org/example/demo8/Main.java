@@ -71,8 +71,10 @@ public class Main extends Application {
         PodcastModel o=new PodcastModel("kjh","aloo",Genre.POP,"https://ts2.tarafdari.com/contents/user6984/content-sound/09.summertime_sadness.mp3",Main.class.getResource("images/pic1.jpg").toExternalForm(),"sbvj");
         PodcastModel o2=new PodcastModel("rer","aloo",Genre.POP,"https://ts9.tarafdari.com/contents/user749487/content-sound/lana_del_rey_-_radio.mp3",Main.class.getResource("images/pic3.jpg").toExternalForm(),"sbvj");
         ListenerModel listener=new ListenerModel("lk","123","kjhg","kksdbnvjsdb","09132082206","2004/8/9");
+        ArrayList <Genre> genres=new ArrayList<>(); genres.add(Genre.POP); genres.add(Genre.ROCK); genres.add(Genre.HIPHOP); genres.add(Genre.JAZZ);
         ArrayList <PlayListModel> p=new ArrayList<>();
         PlayListModel ii=new PlayListModel("joojoo","lk"); p.add(ii);
+        listener.setFavGenres(genres);
         ii.getAudios().add(music);
         ii.getAudios().add(music1);
         listener.setPlayLists(p);

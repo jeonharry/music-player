@@ -162,7 +162,6 @@ public class PlayBarController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        currentMusic=new MediaPlayer(new Media(music.getLink()));
         songArtist.setText(music.getNameOfArtist());
         nameOfSong.setText(music.getAudioName());
         cover.setImage(new Image(music.getCover()));

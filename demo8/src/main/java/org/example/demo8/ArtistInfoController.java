@@ -21,6 +21,7 @@ import model.audioRelated.AlbumModel;
 import model.audioRelated.AudioModel;
 import model.audioRelated.MusicModel;
 import model.audioRelated.PodcastModel;
+import model.users.artists.ArtistModel;
 import model.users.artists.PodcasterModel;
 import model.users.artists.SingerModel;
 import model.users.listeners.ListenerModel;
@@ -143,6 +144,14 @@ public class ArtistInfoController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         int counter=0;
         userName_lbl.setText(Controller.getController().getSelectedArtist().getUserName());
+        for(ArtistModel artist :((ListenerModel)Controller.getController().getAccModel()).getFollowings())
+            if(artist!=null && artist.toString().compareTo(Controller.getController().getSelectedArtist().toString())==0)
+            {
+                followBackground.setVisible(false);
+                followedBackground.setVisible(true);
+                follow_lbl.setVisible(false);
+                followed_lbl.setVisible(true);
+            }
         if(Controller.getController().getSelectedArtist() instanceof PodcasterModel)
         {
             if(((PodcasterModel) Controller.getController().getSelectedArtist()).getPodcasts().size()>podcastsList.getRowCount()*podcastsList.getColumnCount())

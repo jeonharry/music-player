@@ -148,11 +148,6 @@
                         <Font size="17.0" />
                      </font>
                   </Label>
-                  <Label fx:id="subscriptionDate_lbl" text="Label" textFill="WHITE">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </Label>
                </children>
             </VBox>
          </children>
